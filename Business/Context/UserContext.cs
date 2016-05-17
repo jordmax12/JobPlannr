@@ -11,12 +11,14 @@ namespace Business.Context
     public class UserContext : DbContext
     {
         public UserContext()
+            :base("name=UserContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            
         }
 
         public virtual DbSet<User> Users { get; set; }

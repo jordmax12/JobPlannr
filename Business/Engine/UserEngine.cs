@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using Business.Context;
 using Business.Dto;
 using Common.Models;
+using System.Data.Entity;
 
 namespace Business.Engine
 {
     public class UserEngine
     {
         private readonly UserContext _userContext;
+        private readonly UnitOfWork _unitOfWork;
 
         public UserEngine()
         {
             UserContext userContext = new UserContext();
+            UnitOfWork unitOfWork = new UnitOfWork(userContext);
+            _unitOfWork = unitOfWork;
             _userContext = userContext;
         }
 
@@ -23,7 +27,7 @@ namespace Business.Engine
         {
             List<UserDto> users = new List<UserDto>();
             var t = _userContext.Users.ToList();
-            var db = new UserContext();
+            var t2 = _unitOfWork.Users.GetAll();
             return users;
         }
 
@@ -31,6 +35,7 @@ namespace Business.Engine
         {
             var db = new UserContext();
             var newUser = db.Users.Add(user);
+            db.Entry(newUser).State = EntityState.Added;
             db.SaveChanges();
             return newUser;
         }
