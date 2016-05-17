@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "TBDplanner"
+  },
+  "hostingPlanName": {
+    "value": "Default1"
+  },
+  "siteLocation": {
+    "value": "East US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "a7765cb8-0235-4bc0-b794-34ef1e1acb5b"
+  },
+  "resourceGroup": {
+    "value": "Default-Web-EastUS"
+  }
+}
