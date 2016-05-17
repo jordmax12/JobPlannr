@@ -108,3 +108,7 @@ c:\users\jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\
 c:\users\jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\obj\Debug\TBDplanner.csprojResolveAssemblyReference.cache
 c:\users\jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\obj\Debug\TBDplanner.dll
 c:\users\jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\obj\Debug\TBDplanner.pdb
+C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Business.dll
+C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Common.dll
+C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Business.pdb
+C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Common.pdb
