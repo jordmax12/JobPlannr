@@ -226,3 +226,14 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\ru-ru\MsieJavaScriptE
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Mvc.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Mvc.xml

@@ -10,15 +10,13 @@ using System.Data.Entity;
 
 namespace Business.Engine
 {
-    public class UserEngine
+    public class UserEngine : IUserEngine
     {
         private readonly UserContext _userContext;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserEngine()
+        public UserEngine(IUnitOfWork unitOfWork, UserContext userContext)
         {
-            UserContext userContext = new UserContext();
-            UnitOfWork unitOfWork = new UnitOfWork(userContext);
             _unitOfWork = unitOfWork;
             _userContext = userContext;
         }

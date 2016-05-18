@@ -21,11 +21,11 @@ namespace TBDplanner.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private readonly UserContext _userContext;
-        private readonly UserEngine _userEngine;
-        public AccountController()
+        private readonly IUserEngine _userEngine;
+        public AccountController(UserContext userContext, IUserEngine userEngine)
         {
-            UserContext userContext = new UserContext();
-            UserEngine userEngine = new UserEngine();
+            //UserContext userContext = new UserContext();
+            //UserEngine userEngine = new UserEngine();
             _userEngine = userEngine;
             _userContext = userContext;
         }

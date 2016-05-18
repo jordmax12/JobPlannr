@@ -22,7 +22,5 @@ namespace Business.Context
         }
 
         public virtual DbSet<UserAccounts> Users { get; set; }
-
-
     }
 }
