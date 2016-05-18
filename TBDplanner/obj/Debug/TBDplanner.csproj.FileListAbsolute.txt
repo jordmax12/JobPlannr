@@ -235,5 +235,11 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.S
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
-C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Mvc.dll
-C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Practices.Unity.Mvc.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Castle.Core.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Castle.Core.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.Web.Common.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.Web.Mvc.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.Web.Common.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Ninject.Web.Mvc.xml

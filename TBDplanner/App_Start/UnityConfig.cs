@@ -40,6 +40,7 @@ namespace TBDplanner.App_Start
 
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
             container.RegisterType<IUserEngine, UserEngine>();
             container.RegisterType<IUserRepository, UserRepository>();
             container.RegisterType<UserContext, UserContext>();

@@ -7,37 +7,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 using System.Web.Mvc;
-using TBDplanner.Infrastructure;
+using TBDplanner.Controllers;
 
 namespace TBDplanner.App_Start
 {
     public static class IoCConfig
     {
-        public static void UnityContainer()
+        public static void WindsorContainer()
         {
-            IUnityContainer container = new UnityContainer();
-
-            registerEngine(container);
-            registerRepository(container);
-            registerContext(container);
-
-            DependencyResolver.SetResolver(new UnityResolver(container));
-        }
-
-        public static void registerEngine(IUnityContainer container)
-        {
-            container.RegisterType<IUserEngine, UserEngine>();
-        }
-
-        public static void registerRepository(IUnityContainer container)
-        {
-            container.RegisterType<IUserRepository, UserRepository>();
-        }
-
-        public static void registerContext(IUnityContainer container)
-        {
-            container.RegisterType<UserContext, UserContext>();
+            //container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
+            //container.RegisterType<IUserEngine, UserEngine>();
+            //container.RegisterType<IUserRepository, UserRepository>();
+            //container.RegisterType<UserContext, UserContext>();
         }
     }
 }
