@@ -13,12 +13,15 @@ namespace TBDplanner.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            UserEngine userEngine = new UserEngine();
-            User user = new User();
-            user.username = "Nancy";
-            user.password = "Raegan";
-            userEngine.Add(user);
-            userEngine.GetAll();
+            //UserEngine userEngine = new UserEngine();
+            //UserAccounts user = new UserAccounts();
+            //user.Username = "nancyRaegan";
+            //user.Password = "Raegan23";
+            //user.FirstName = "Nancy";
+            //user.LastName = "Raegan";
+            //user.Email = "nancy@raegan.com";
+            //userEngine.Add(user);
+            //userEngine.GetAll();
             return View();
         }
     }

@@ -35,3 +35,39 @@ C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Common\bin\Enti
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Common\bin\EntityFramework.SqlServer.dll
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Common\bin\EntityFramework.xml
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Common\bin\EntityFramework.SqlServer.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\ApplicationInsights.config
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\csc.exe
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\vbc.exe
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Common.dll.config
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Common.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Common.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\EntityFramework.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\EntityFramework.SqlServer.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.Web.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\EntityFramework.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\EntityFramework.SqlServer.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.Web.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.pdb

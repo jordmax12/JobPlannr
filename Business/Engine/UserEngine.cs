@@ -31,7 +31,7 @@ namespace Business.Engine
             return users;
         }
 
-        public User Add(User user)
+        public UserAccounts Add(UserAccounts user)
         {
             var db = new UserContext();
             var newUser = db.Users.Add(user);
@@ -44,6 +44,6 @@ namespace Business.Engine
     public interface IUserEngine
     {
         List<UserDto> GetAll();
-        User Add(User user);
+        UserAccounts Add(UserAccounts user);
     }
 }
