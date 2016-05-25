@@ -64,11 +64,6 @@ namespace TBDplanner.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
-            //container.RegisterType<IUserEngine, UserEngine>();
-            //container.RegisterType<IUserRepository, UserRepository>();
-            //container.RegisterType<UserContext, UserContext>();
-            //IUnitOfWork
             kernel.Bind<IUserEngine>().To<UserEngine>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<UserContext>().To<UserContext>();

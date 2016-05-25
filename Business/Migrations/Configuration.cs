@@ -10,6 +10,7 @@ namespace Business.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Business.Context.UserContext context)

@@ -24,5 +24,16 @@ namespace TBDplanner.Controllers
             //userEngine.GetAll();
             return View();
         }
+
+        public JsonResult GetAuth()
+        {
+            var token = Session["UserId"];
+            var user = Session["UserName"];
+
+            if (token != null)
+                return Json(new { name = $"Hello From Server Side {user}" }, JsonRequestBehavior.AllowGet);
+            else
+                return Json(new { name = "Not logged in" }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
