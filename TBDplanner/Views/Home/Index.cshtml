@@ -1,13 +1,300 @@
 ﻿<html>
 <head>
-    <title>Hello React</title>
+    <meta charset="utf-8">
+    <meta name="description" content="App that helps people in the job hunt process.">
+    <meta name="author" content="JobPlannr">
+
+    <title>JobPlannr</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/creative.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
 </head>
-<body>
-    <div id="content"></div>
-    <script src="https://fb.me/react-15.0.1.js"></script>
-    <script src="https://fb.me/react-dom-15.0.1.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/Home.jsx"></script>
+<body id="page-top">
+    @*<div id="content"></div>*@
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">JobPlannr</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about" class="page-scroll">About</a>
+                    </li>
+                    <li>
+                        <a href="#services" class="page-scroll">Services</a>
+                    </li>
+                    <li>
+                        <a href="#team" class="page-scroll">Team Members</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="page-scroll">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-scroll nav-inverse" data-toggle="modal" data-target="#signin">Login</a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-scroll nav-inverse" data-toggle="modal" data-target="#signup">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>JobPlannr</h1>
+                <hr>
+                <p>Use our awesome service to do really awesome things. You can do some really cool stuff if you just try! Sign up for our open beta :)</p>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Join us! / Sign UP now!</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!--
+                                <a href="#" class="btn btn-primary btn-xl page-scroll">Login</a>
+                                <a href="#" class="btn btn-primary btn-xl page-scroll">Register</a>
+                -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Sign Up Modal -->
+    <div id="signup" tabindex="-1" role="dialog" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sign Up!</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control input-lg" id="new_user_email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="new_user_password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="signin" tabindex="-1" role="dialog" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sign In!</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control input-lg" id="new_user_email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="new_user_password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Project tagline! What will we do for our users</h2>
+                    <hr class="light">
+                    <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris congue, metus non viverra sagittis, arcu lorem congue metus, in malesuada ipsum orci a ex. Pellentesque et justo mattis, placerat nunc id, malesuada dolor. Vestibulum sit amet elementum ante, in accumsan enim. Mauris eu mi porttitor, pretium sem sit amet, volutpat.</p>
+                    <a href="#" class="btn btn-default btn-xl" data-toggle="modal" data-target="#signup">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">What we offer / What user will gain</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Offer 1</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Offer 2</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Gain 1</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Gain 2</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="team">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Jordan David
+                                </div>
+                                <div class="project-name">
+                                    Awesome guy with awesome ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Ethan Arrowood
+                                </div>
+                                <div class="project-name">
+                                    Awesome guy with other awesome ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Another person
+                                </div>
+                                <div class="project-name">
+                                    Cool ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Another person
+                                </div>
+                                <div class="project-name">
+                                    With other cool ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Check out our sponsors!</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Sponsor 1</a>
+                <a href="#" class="btn btn-default btn-xl wow tada">Sponsor 2</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Need more information?</h2>
+                    <hr class="primary">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at justo sed sapien sodales viverra nec quis justo. Donec placerat.</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:your-email@your-domain.com">email@email.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @*<script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>*@
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/home/jquery.easing.min.js"></script>
+    <script src="~/Scripts/home/jquery.fittext.js"></script>
+    <script src="~/Scripts/home/wow.min.js"></script>
+    <script src="~/Scripts/home/creative.js"></script>
+    <script src="~/Scripts/home/custom.js"></script>
+
+    @*<script src="~/Scripts/Home.jsx"></script>*@
     
 </body>
 </html>

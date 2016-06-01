@@ -1,0 +1,12 @@
+.nav-inverse {
+    color: #eb3812 !important;
+}
+
+@media(min-width:768px) {
+    .affix .nav-inverse {
+        color: #eb3812 !important;
+    }
+    .affix-top .nav-inverse {
+        color: #FFF !important;
+    }
+}

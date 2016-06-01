@@ -80,7 +80,6 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.Practices.Servi
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.Practices.Unity.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
-C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\System.Web.Helpers.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\System.Web.Mvc.dll

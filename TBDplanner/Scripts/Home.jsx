@@ -48,15 +48,6 @@ class Init extends React.Component {
     }
     
     render () {
-        //const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
-        //return (
-        //    <div>
-        //        <SearchBar onSearchTermChange={videoSearch} />
-        //        <VideoDetail video={this.state.selected} />
-        //        <VideoList onVideoSelect={selected => this.setState({selected})} videos={this.state.videos} />
-        //    </div>
-        //);
-
         return (
           <div className="commentBox">
                 {this.state.name}
