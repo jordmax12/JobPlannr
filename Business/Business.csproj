@@ -187,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BusinessContext.cs" />
+    <Compile Include="Dto\ServiceResult.cs" />
     <Compile Include="Dto\SubscriptionDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Engine\SubscriptionEngine.cs" />

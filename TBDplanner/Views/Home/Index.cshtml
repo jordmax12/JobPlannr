@@ -407,10 +407,18 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     //swal("", "Registered", "success");
-                    swal("", "Registered!", "success");
-                    $('#new_user_email').val('');
-                    inProcess = false;
-                    jobPlannr.toggleOverlay();
+                    console.log(data);
+                    if (data.IsSuccess) {
+                        swal("", "Registered!", "success");
+                        $('#new_user_email').val('');
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                    } else {
+                        inProcess = false;
+                        console.log(data);
+                        jobPlannr.toggleOverlay();
+                    }
+
                 }
             });
         });

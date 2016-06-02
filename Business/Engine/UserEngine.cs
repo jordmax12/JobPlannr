@@ -29,20 +29,41 @@ namespace Business.Engine
             return users;
         }
 
-        public UserAccounts Add(UserAccounts user)
+        public ServiceResult Add(UserAccounts user)
         {
+            var result = new ServiceResult();
+            result.IsSuccess = true;
             //here we need to make sure username and email are unique
             var db = new BusinessContext();
+            var checkEmail = db.Users.Where(u => u.Email == user.Email).FirstOrDefault();
+            var checkUsername = db.Users.Where(u => u.Username == user.Username).FirstOrDefault();
+
+            if (checkEmail != null)
+            {
+                result.IsSuccess = false;
+                result.Error = "Email already exists";
+                return result;
+            }
+
+            if (checkUsername != null)
+            {
+                result.IsSuccess = false;
+                result.Error = "Username already exists";
+                return result;
+            }
+
             var newUser = db.Users.Add(user);
             db.Entry(newUser).State = EntityState.Added;
             db.SaveChanges();
-            return newUser;
+            result.ReturnObject = newUser;
+            result.Error = $"{user.Email} successfully registered!";
+            return result;
         }
     }
 
     public interface IUserEngine
     {
         List<UserDto> GetAll();
-        UserAccounts Add(UserAccounts user);
+        ServiceResult Add(UserAccounts user);
     }
 }

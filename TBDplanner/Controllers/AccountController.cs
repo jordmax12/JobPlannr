@@ -98,18 +98,19 @@ namespace TBDplanner.Controllers
         [HttpPost]
         public ActionResult Register(UserAccounts user)
         {
-            if (ModelState.IsValid)
+            using (_businessContext)
             {
-                using (_businessContext)
+                try
                 {
-                    _userEngine.Add(user);
+                    var result = _userEngine.Add(user);
                     _businessContext.SaveChanges();
+                    return Json(new { IsSuccess = result.IsSuccess, Error = result.Error, ReturnObject = result.ReturnObject });
                 }
-                ModelState.Clear();
-                //ViewBag.Message = $"{user.Email} successfully registered!";
-                return Json(new { IsSuccess = true, Error = $"{user.Email} successfully registered!", ReturnObject = user });
+                catch (Exception ex)
+                {
+                    return Json(new { IsSuccess = false, Error = ex.Message, ReturnObject = "" });
+                }
             }
-            return View();
         }
 
         //
