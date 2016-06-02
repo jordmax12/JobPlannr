@@ -300,7 +300,7 @@
     @*<script src="~/Scripts/Home.jsx"></script>*@
     <script type="text/javascript">
         var inProcess = false;
-
+        var userIP = '@TempData["userIP"]';
         var jobPlannr = {};
 
         jobPlannr.toggleOverlay = function () {
@@ -319,7 +319,7 @@
             inProcess = true;
             jobPlannr.toggleOverlay();
 
-            var ip = '';
+            var ip = userIP;
             var email = $('#subscribeEmail').val() !== undefined ? $('#subscribeEmail').val() : null;
 
             if(email == null)

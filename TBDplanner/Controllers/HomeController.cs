@@ -10,6 +10,7 @@ namespace TBDplanner.Controllers
 {
     public class HomeController : Controller
     {
+        public string userIP;
         // GET: Home
         public ActionResult Index()
         {
@@ -22,6 +23,7 @@ namespace TBDplanner.Controllers
             //user.Email = "nancy@raegan.com";
             //userEngine.Add(user);
             //userEngine.GetAll();
+            TempData["userIP"] = Request.UserHostAddress;
             return View();
         }
 
