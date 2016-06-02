@@ -12,10 +12,10 @@ namespace Business.Engine
 {
     public class UserEngine : IUserEngine
     {
-        private readonly UserContext _userContext;
+        private readonly Context.BusinessContext _userContext;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserEngine(IUnitOfWork unitOfWork, UserContext userContext)
+        public UserEngine(IUnitOfWork unitOfWork, BusinessContext userContext)
         {
             _unitOfWork = unitOfWork;
             _userContext = userContext;
@@ -31,7 +31,8 @@ namespace Business.Engine
 
         public UserAccounts Add(UserAccounts user)
         {
-            var db = new UserContext();
+            //here we need to make sure username and email are unique
+            var db = new BusinessContext();
             var newUser = db.Users.Add(user);
             db.Entry(newUser).State = EntityState.Added;
             db.SaveChanges();

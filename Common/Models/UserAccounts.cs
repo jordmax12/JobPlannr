@@ -15,6 +15,7 @@ namespace Common.Models
         public string Username { get; set; }
 
         [StringLength(100)]
+        [Required(ErrorMessage = "Password is Required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
@@ -24,11 +25,9 @@ namespace Common.Models
         public string Email { get; set; }
 
         [StringLength(100)]
-        [Required(ErrorMessage = "First name is Required")]
         public string FirstName { get; set; }
 
         [StringLength(50)]
-        [Required(ErrorMessage = "Last name is Required")]
         public string LastName { get; set; }
     }
 }

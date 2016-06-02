@@ -20,14 +20,17 @@ namespace TBDplanner.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly UserContext _userContext;
+        private readonly BusinessContext _businessContext;
         private readonly IUserEngine _userEngine;
-        public AccountController(UserContext userContext, IUserEngine userEngine)
+        private readonly ISubscriptionEngine _subscriptionEngine;
+
+        public AccountController(BusinessContext businessContext, IUserEngine userEngine, ISubscriptionEngine subscriptionEngine)
         {
             //UserContext userContext = new UserContext();
             //UserEngine userEngine = new UserEngine();
             _userEngine = userEngine;
-            _userContext = userContext;
+            _businessContext = businessContext;
+            _subscriptionEngine = subscriptionEngine;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -44,7 +47,7 @@ namespace TBDplanner.Controllers
             }
             private set 
             { 
-                _signInManager = value; 
+                _signInManager = value;  
             }
         }
 
@@ -61,6 +64,31 @@ namespace TBDplanner.Controllers
         }
 
         [AllowAnonymous]
+        public ActionResult AddEmailSubscription()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult AddEmailSubscription(EmailSubscription user)
+        {
+            try
+            {
+                using (_businessContext)
+                {
+                    _subscriptionEngine.Add(user);
+                    _businessContext.SaveChanges();
+                }
+
+                return Json(new { IsSuccess = true, Error = "", ReturnObject = user });
+            } catch(Exception ex)
+            {
+                return Json(new { IsSuccess = false, Error = ex.Message, ReturnObject = "" });
+            }
+        }
+
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -72,13 +100,14 @@ namespace TBDplanner.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (_userContext)
+                using (_businessContext)
                 {
                     _userEngine.Add(user);
-                    _userContext.SaveChanges();
+                    _businessContext.SaveChanges();
                 }
                 ModelState.Clear();
-                ViewBag.Message = $"{user.Email} successfully registered!";
+                //ViewBag.Message = $"{user.Email} successfully registered!";
+                return Json(new { IsSuccess = true, Error = $"{user.Email} successfully registered!", ReturnObject = user });
             }
             return View();
         }
@@ -96,21 +125,22 @@ namespace TBDplanner.Controllers
         [HttpPost]
         public ActionResult Login(UserAccounts user)
         {
-            using (_userContext)
+            using (_businessContext)
             {
-                var usr = _userContext.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+                var usr = _businessContext.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
                 if(usr != null)
                 {
                     Session["UserId"] = usr.Id.ToString();
                     Session["Username"] = usr.Username.ToString();
-                    return RedirectToAction("Index", "Home");
-                }else
+                    //return RedirectToAction("Index", "Home");
+                    return Json(new { IsSuccess = true, Error = "", ReturnObject = usr });
+                }
+                else
                 {
-                    ModelState.AddModelError("", "Username or password is incorrect.");
+                    return Json(new { IsSuccess = false, Error = "Invalid username or password.", ReturnObject = "" });
                 }
 
             }
-            return View();
         }
 
         //

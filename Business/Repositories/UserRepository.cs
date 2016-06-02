@@ -12,7 +12,7 @@ namespace Business.Repositories
 {
     public class UserRepository : Repository<UserAccounts>, IUserRepository
     {
-        public UserRepository(UserContext context) 
+        public UserRepository(BusinessContext context) 
             : base(context)
         {
 
@@ -20,12 +20,12 @@ namespace Business.Repositories
 
         public IEnumerable<UserAccounts> GetByName(string name)
         {
-            return UserContext.Users.Where(u => u.Username.Contains(name)).ToList();
+            return BusinessContext.Users.Where(u => u.Username.Contains(name)).ToList();
         }
 
-        public UserContext UserContext
+        public BusinessContext BusinessContext
         {
-            get { return Context as UserContext; }
+            get { return Context as BusinessContext; }
         }
     }
 

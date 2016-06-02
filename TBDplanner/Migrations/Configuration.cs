@@ -1,19 +1,18 @@
-namespace Business.Migrations
+namespace TBDplanner.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Business.Context.BusinessContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TBDplanner.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Business.Context.BusinessContext context)
+        protected override void Seed(TBDplanner.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

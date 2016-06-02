@@ -8,12 +8,13 @@ using Common.Models;
 
 namespace Business.Context
 {
-    public class UserContext : DbContext
+    public class BusinessContext : DbContext
     {
-        public UserContext()
-            :base("name=UserContext")
+        public BusinessContext()
+            :base("name=BusinessContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
+            Database.SetInitializer<BusinessContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -22,5 +23,6 @@ namespace Business.Context
         }
 
         public virtual DbSet<UserAccounts> Users { get; set; }
+        public virtual DbSet<EmailSubscription> EmailSubscriptions { get; set; }
     }
 }

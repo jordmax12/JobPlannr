@@ -67,9 +67,9 @@
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <form>
                             <div class="form-group">
-                                <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
+                                <input type="email" class="form-control input-lg" id="subscribeEmail" placeholder="Your Email">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Join us! / Sign UP now!</button>
+                            <button type="submit" id="subscribeSubmit" class="btn btn-primary btn-lg btn-block">Join us! / Sign UP now!</button>
                         </form>
                     </div>
                 </div>
@@ -97,9 +97,12 @@
                             <input type="email" class="form-control input-lg" id="new_user_email" placeholder="Your Email">
                         </div>
                         <div class="form-group">
+                            <input type="text" class="form-control input-lg" id="new_user_username" placeholder="Your Username">
+                        </div>
+                        <div class="form-group">
                             <input type="password" class="form-control input-lg" id="new_user_password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                        <button type="submit" id="signUpSubmit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -117,12 +120,12 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control input-lg" id="new_user_email" placeholder="Your Email">
+                            <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control input-lg" id="new_user_password" placeholder="Password">
+                            <input type="password" class="form-control input-lg" id="user_password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                        <button type="submit" id="signInSubmit" class="btn btn-primary btn-lg btn-block">Sign In</button>
                     </form>
                 </div>
             </div>
@@ -295,6 +298,124 @@
     <script src="~/Scripts/home/custom.js"></script>
 
     @*<script src="~/Scripts/Home.jsx"></script>*@
-    
+    <script type="text/javascript">
+        var inProcess = false;
+
+        var jobPlannr = {};
+
+        jobPlannr.toggleOverlay = function () {
+            var display = $('#pluswrap').css('display');
+
+            if (display == 'flex')
+                $('#pluswrap').css('display', 'none');
+            else
+                $('#pluswrap').css('display', 'flex');
+        }
+
+        $('#subscribeSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var ip = '';
+            var email = $('#subscribeEmail').val() !== undefined ? $('#subscribeEmail').val() : null;
+
+            if(email == null)
+            {
+                alert("Email is not valid or empty, please enter a valid one.");
+                return;
+            }
+
+            var data = {
+                IP: ip,
+                Email: email
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/AddEmailSubscription",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    swal("You're on our radar, chief!", "Stay tuned for some really sweet emails coming your way! (We promise not too much)", "success");
+                    $('#subscribeEmail').val('');
+                    inProcess = false;
+                    jobPlannr.toggleOverlay();
+                }
+            });
+        });
+
+        $('#signInSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var email = $('#user_email').val() !== undefined ? $('#user_email').val() : null,
+                password = $('#user_password').val() !== undefined ? $('#user_password').val() : null;
+
+            var data = {
+                Username: email,
+                Password: password
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/Login",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        swal("", "Logged in", "success");
+                        $('#user_email').val('');
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                    } else {
+                        swal("", data.Error, "error");
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                    }
+
+                }
+            });
+        });
+
+        $('#signUpSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var email = $('#new_user_email').val() !== undefined ? $('#new_user_email').val() : null,
+                password = $('#new_user_password').val() !== undefined ? $('#new_user_password').val() : null,
+                username = $('#new_user_username').val() !== undefined ? $('#new_user_username').val() : null;
+
+            var data = {
+                Email: email,
+                Password: password,
+                Username: username
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/Register",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    //swal("", "Registered", "success");
+                    swal("", "Registered!", "success");
+                    $('#new_user_email').val('');
+                    inProcess = false;
+                    jobPlannr.toggleOverlay();
+                }
+            });
+        });
+
+
+    </script>
 </body>
 </html>

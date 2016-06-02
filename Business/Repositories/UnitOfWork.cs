@@ -10,9 +10,9 @@ namespace Business
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly UserContext _context;
+        private readonly BusinessContext _context;
 
-        public UnitOfWork(UserContext context)
+        public UnitOfWork(BusinessContext context)
         {
             _context = context;
             Users = new UserRepository(_context);
