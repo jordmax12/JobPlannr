@@ -10,6 +10,11 @@ body {
     height: 100%;
 }
 
+.testR {
+    background-color: tomato !important;
+    height: 1000px;
+}
+
 body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
@@ -122,7 +127,13 @@ aside {
 }
 
 @media(min-width:768px) {
-    .navbar-default {
+
+   .navbar-default {
+        border-color: rgba(255,255,255,.3);
+        background-color: #fff;
+        color: #f05f40 !important
+    }
+    .navbar-default:not(#mainNav) {
         border-color: rgba(255,255,255,.3);
         background-color: transparent;
     }
@@ -151,6 +162,11 @@ aside {
         background-color: #fff;
     }
 
+    .navbar-default.affix-static {
+        border-color: rgba(34,34,34,.05);
+        background-color: #fff;
+    }
+
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
         color: #f05f40;
@@ -170,6 +186,16 @@ aside {
     .navbar-default.affix .nav>li>a:focus:hover {
         color: #f05f40;
     }
+
+    #mainNav .navbar-brand, #mainNav .nav-inverse {
+        color: #f05f40 !important;
+    }
+
+    #mainNav .nav > li>a {
+        color: black;
+    }
+
+    /*color: #f05f40 !important;*/
 }
 
 header {

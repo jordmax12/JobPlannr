@@ -10,7 +10,6 @@ namespace TBDplanner.Controllers
 {
     public class HomeController : Controller
     {
-        public string userIP;
         // GET: Home
         public ActionResult Index()
         {
@@ -25,6 +24,18 @@ namespace TBDplanner.Controllers
             //userEngine.GetAll();
             TempData["userIP"] = Request.UserHostAddress;
             return View();
+        }
+
+        public ActionResult Dashboard()
+        {
+            var token = Session["UserId"];
+            var user = Session["UserName"];
+
+            if (token != null)
+                return View();
+            else
+                return RedirectToAction("Index", "Home");
+            
         }
 
         public JsonResult GetAuth()

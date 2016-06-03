@@ -290,7 +290,7 @@
     @*<script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>*@
     <script src="~/Scripts/jquery.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/home/jquery.easing.min.js"></script>
     <script src="~/Scripts/home/jquery.fittext.js"></script>
     <script src="~/Scripts/home/wow.min.js"></script>
@@ -369,10 +369,11 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     if (data.IsSuccess) {
-                        swal("", "Logged in", "success");
+                        //swal("", "Logged in", "success");
                         $('#user_email').val('');
                         inProcess = false;
                         jobPlannr.toggleOverlay();
+                        window.location.href = '/Home/Dashboard';
                     } else {
                         swal("", data.Error, "error");
                         inProcess = false;
