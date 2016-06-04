@@ -10,9 +10,24 @@ body {
     height: 100%;
 }
 
+
+
 .testR {
-    background-color: tomato !important;
-    height: 1000px;
+    width: 100%;
+    height: auto;
+}
+
+.dummy {
+    margin-top: 100%;
+}
+.thumbnail {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    text-align:center;
+    padding-top:calc(50% - 30px);
 }
 
 body {
@@ -500,8 +515,4 @@ img::selection {
 img::-moz-selection {
     color: #fff;
     background: 0 0;
-}
-
-body {
-    webkit-tap-highlight-color: #222;
 }

@@ -30,8 +30,30 @@ textarea {
     z-index:2000;
 }
 
+.site-footer {
+  height: 50px; 
+}
+
 .plus {
     display: flex;
     margin: 0 auto;
+}
+
+#content {
+    min-height:100%;
+    height: 100%; 
+    margin: 0 auto -50px;
+    background: snow;
+}
+
+.push {
+    height: 50px;
+    clear: both;
+}
+
+.site-footer {
+    background: tomato;
+    height: 50px;
+    clear: both;
 }
 

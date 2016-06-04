@@ -1,15 +1,10 @@
 ﻿class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        
-        this.state = { name : '' };
-        
-        this.auth();
     }
 
     render() {
-        return (
-            <div>
+         return (
                 <nav id="mainNav" className="navbar navbar-default navbar-fixed-top">
                 <div className="container-fluid">{/* Brand and toggle get grouped for better mobile display */}
                     <div className="navbar-header">
@@ -22,8 +17,7 @@
                     <a className="navbar-brand page-scroll" href="#page-top">JobPlannr</a>
                     </div>{/* Collect the nav links, forms, and other content for toggling */}
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul className="nav navbar-nav navbar-right">
-                        <li>
+                    <ul className="nav navbar-nav navbar-right">{/*<li>
                         <a href="#about" className="page-scroll">About</a>
                         </li>
                         <li>
@@ -34,7 +28,7 @@
                         </li>
                         <li>
                         <a href="#contact" className="page-scroll">Contact</a>
-                        </li>
+                        </li>*/}
                         <li>
                         <a href="#" className="page-scroll nav-inverse" data-toggle="modal" data-target="#signout">Logout</a>
                         </li>
@@ -42,8 +36,6 @@
                     </div>{/* /.navbar-collapse */}
                 </div>{/* /.container-fluid */}
                 </nav>
-                <div className="testR"></div>
-            </div>
         );
     };
 }
