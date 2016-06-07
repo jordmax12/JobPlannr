@@ -21,6 +21,7 @@
                             <div id="grid-1-1">
                                 <div className="container" style={{ "width": "100%", "paddingRight": "30px" } }>
                                     <div className="row">
+                                        <Tile onUserInput={this.handleClick} tileName="Summer 2016"></Tile>
                                         <Tile onUserInput={this.handleClick} tileName="Add New +"></Tile>
                                     </div>
                                 </div>
