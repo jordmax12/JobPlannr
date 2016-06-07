@@ -25,11 +25,17 @@ namespace Business.Repositories
         {
             get { return Context as BusinessContext; }
         }
+
+        public List<Planner> GetAll(int id)
+        {
+            return BusinessContext.Planner.Where(p => p.UserId == id).ToList();
+        }
     }
 
     public interface IPlannerRepository : IRepository<Planner>
     {
         Planner Update(Planner planner);
+        List<Planner> GetAll(int id);
     }
 
 

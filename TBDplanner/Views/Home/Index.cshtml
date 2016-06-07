@@ -286,6 +286,10 @@
         </div>
     </section>
 
+    <div id="loading" style="display: none;">
+        <img id="loading-image" src="~/Content/Images/loading.gif" alt="Loading..." />
+    </div>
+
 
     @*<script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>*@
@@ -304,12 +308,12 @@
         var jobPlannr = {};
 
         jobPlannr.toggleOverlay = function () {
-            var display = $('#pluswrap').css('display');
+            var display = $('#loading').css('display');
 
-            if (display == 'flex')
-                $('#pluswrap').css('display', 'none');
+            if (display != 'none')
+                $('#loading').hide();
             else
-                $('#pluswrap').css('display', 'flex');
+                $('#loading').show();
         }
 
         $('#subscribeSubmit').click(function (event) {

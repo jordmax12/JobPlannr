@@ -53,7 +53,9 @@ namespace Business.Repositories
 
         public void Add(TEntity entity)
         {
-            Context.Set<TEntity>().Add(entity);
+                Context.Set<TEntity>().Add(entity);
+                Context.Entry(entity).State = EntityState.Added;
+                Context.SaveChanges();
         }
 
         public void AddRange(IEnumerable<TEntity> entities)

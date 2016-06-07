@@ -37,17 +37,24 @@ namespace Business.Engine
         public void Add(Planner planner)
         {
             _plannerRepository.Add(planner);
+            Console.WriteLine("test");
         }
 
         public Planner Get(int id)
         {
             return _plannerRepository.Get(id);
         }
+
+        public List<Planner> GetAll(int id)
+        {
+            return _plannerRepository.GetAll(id);
+        }
     }
 
     public interface IPlannerEngine
     {
         Planner Get(int id);
+        List<Planner> GetAll(int id);
         Planner Update(Planner planner);
         void Add(Planner planner);
         void Delete(Planner planner);

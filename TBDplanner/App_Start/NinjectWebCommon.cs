@@ -65,8 +65,10 @@ namespace TBDplanner.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUserEngine>().To<UserEngine>();
+            kernel.Bind<IPlannerEngine>().To<PlannerEngine>();
             kernel.Bind<ISubscriptionEngine>().To<SubscriptionEngine>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<IPlannerRepository>().To<PlannerRepository>();
             kernel.Bind<BusinessContext>().To<BusinessContext>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }

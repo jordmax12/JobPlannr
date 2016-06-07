@@ -424,8 +424,8 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Scripts\Components\Navbar.jsx" />
     <Content Include="Scripts\Components\Dashboard.jsx" />
-    <Content Include="Scripts\Components\Square.jsx" />
     <Content Include="Scripts\Components\Tile.jsx" />
+    <Content Include="Scripts\Components\PlannerForm.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

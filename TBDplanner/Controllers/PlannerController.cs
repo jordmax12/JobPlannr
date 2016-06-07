@@ -1,32 +1,50 @@
-﻿using System;
+﻿using Business.Engine;
+using Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace TBDplanner.Controllers
 {
-    public class PlannerController
+    [Authorize]
+    public class PlannerController : Controller
     {
-        public ActionResult Add()
+        private readonly IPlannerEngine _plannerEngine;
+        public PlannerController(IPlannerEngine plannerEngine)
         {
-            return new JsonResult();
+            _plannerEngine = plannerEngine;
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Add(Planner planner)
+        {
+            _plannerEngine.Add(planner);
+            return Json(new { IsSuccess = false, Error = "testing", ReturnObject = "" });
+        }
+
+        [HttpPost]
         public ActionResult Delete()
         {
             return new JsonResult();
         }
-        
+
+        [HttpPost]
         public ActionResult Update()
         {
             return new JsonResult();
         }
 
-        public ActionResult Get()
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Get(int id)
         {
-            return new JsonResult();
+            var planners = _plannerEngine.GetAll(id);
+            return Json(new { IsSuccess = false, Error = "testing", ReturnObject = planners }, JsonRequestBehavior.AllowGet);
         }
     }
 }

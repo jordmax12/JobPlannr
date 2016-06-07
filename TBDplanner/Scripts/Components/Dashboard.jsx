@@ -1,15 +1,45 @@
 ﻿class Dashboard extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            planners: []
+        };
+    }
+
+    getPlanners() {
+        $.ajax({
+            type: "GET",
+            url: "/Planner/Get",
+            data: { id: userId },
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data);
+                this.setState({ planners: data.ReturnObject })
+            }.bind(this),
+            error: function (xhr, status, err) {
+                console.log(err);
+            }
+        });
+    }
+
+    componentDidMount() {
+        this.getPlanners();
     }
 
     handleClick() {
-        //yay this works! now plugin logic
+        $('#plannerForm').modal('show');
     }
 
     render() {
+        const planners = this.state.planners.map((planner) => {
+            return (
+                <Tile tileName={planner.Name}></Tile>
+            );
+        });
         return (
             <div className="application">
+                <PlannerForm></PlannerForm>
                 <div className="container-fluid">
                     <div className="row">
                       <div className="col-sm-8">
@@ -21,9 +51,11 @@
                             <div id="grid-1-1">
                                 <div className="container" style={{ "width": "100%", "paddingRight": "30px" } }>
                                     <div className="row">
-                                        <Tile onUserInput={this.handleClick} tileName="Summer 2016"></Tile>
+                                        {planners}
                                         <Tile onUserInput={this.handleClick} tileName="Add New +"></Tile>
+                                        
                                     </div>
+
                                 </div>
 	</div>
                                 </div>
