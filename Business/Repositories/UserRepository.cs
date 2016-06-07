@@ -10,7 +10,7 @@ using Business.Repositories;
 
 namespace Business.Repositories
 {
-    public class UserRepository : Repository<UserAccounts>, IUserRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
         public UserRepository(BusinessContext context) 
             : base(context)
@@ -18,7 +18,7 @@ namespace Business.Repositories
 
         }
 
-        public IEnumerable<UserAccounts> GetByName(string name)
+        public IEnumerable<User> GetByName(string name)
         {
             return BusinessContext.Users.Where(u => u.Username.Contains(name)).ToList();
         }
@@ -29,9 +29,9 @@ namespace Business.Repositories
         }
     }
 
-    public interface IUserRepository : IRepository<UserAccounts>
+    public interface IUserRepository : IRepository<User>
     {
-        IEnumerable<UserAccounts> GetByName(string name);
+        IEnumerable<User> GetByName(string name);
     }
 
 

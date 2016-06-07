@@ -6,9 +6,10 @@ namespace Common.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("UserAccounts")]
-    public partial class UserAccounts
+    [Table("User")]
+    public partial class User
     {
+        [Key]
         public int Id { get; set; }
 
         [StringLength(100)]
@@ -29,5 +30,7 @@ namespace Common.Models
 
         [StringLength(50)]
         public string LastName { get; set; }
+
+        
     }
 }

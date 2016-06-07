@@ -96,7 +96,7 @@ namespace TBDplanner.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Register(UserAccounts user)
+        public ActionResult Register(User user)
         {
             using (_businessContext)
             {
@@ -124,7 +124,7 @@ namespace TBDplanner.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(UserAccounts user)
+        public ActionResult Login(User user)
         {
             using (_businessContext)
             {

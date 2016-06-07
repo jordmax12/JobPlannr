@@ -424,6 +424,7 @@
     <Content Include="Scripts\Components\Navbar.jsx" />
     <Content Include="Scripts\Components\Dashboard.jsx" />
     <Content Include="Scripts\Components\Square.jsx" />
+    <Content Include="Scripts\Components\Tile.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

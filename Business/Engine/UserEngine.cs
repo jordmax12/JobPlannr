@@ -29,7 +29,7 @@ namespace Business.Engine
             return users;
         }
 
-        public ServiceResult Add(UserAccounts user)
+        public ServiceResult Add(User user)
         {
             var result = new ServiceResult();
             result.IsSuccess = true;
@@ -64,6 +64,6 @@ namespace Business.Engine
     public interface IUserEngine
     {
         List<UserDto> GetAll();
-        ServiceResult Add(UserAccounts user);
+        ServiceResult Add(User user);
     }
 }

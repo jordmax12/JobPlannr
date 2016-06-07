@@ -3,6 +3,10 @@
         super(props);
     }
 
+    handleClick() {
+        //yay this works! now plugin logic
+    }
+
     render() {
         return (
             <div className="application">
@@ -15,13 +19,17 @@
                           </div>
                           <div className="chart-stage">
                             <div id="grid-1-1">
-                              <img data-src="holder.js/100%x240/white/text:#grid-1-1" />
-                            </div>
-                          </div>
+                                <div className="container" style={{ "width": "100%", "paddingRight": "30px" } }>
+                                    <div className="row">
+                                        <Tile onUserInput={this.handleClick} tileName="Add New +"></Tile>
+                                    </div>
+                                </div>
+	</div>
+                                </div>
                           <div className="chart-notes">
                               Notes about this chart
                           </div>
-                        </div>
+                            </div>
                       </div>
                       <div className="col-sm-4">
                         <div className="chart-wrapper">
@@ -67,7 +75,7 @@
                     </div>
                 </div>
             </div>
-        
+
         );
     };
 }
