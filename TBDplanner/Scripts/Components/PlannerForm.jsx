@@ -20,7 +20,8 @@
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data);
+                $('#plannerForm').modal('toggle');
+                this.props.getPlanners();
             }.bind(this),
             error: function (xhr, status, err) {
                 console.log(err);
@@ -59,7 +60,7 @@
                        <button type="button" className="btn btn-default" data-dismiss="modal">
                        Close
                        </button>
-                       <button type="button" className="btn btn-primary" onClick={this.createPlanner}>
+                       <button type="button" className="btn btn-primary" onClick={() => this.createPlanner()}>
                        Create
                        </button>
                     </div>
