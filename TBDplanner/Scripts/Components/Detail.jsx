@@ -26,7 +26,7 @@
         return (
             <div>
                 <Navbar></Navbar>
-                <DetailContainer></DetailContainer>
+                <DetailContainer plannerName={"Test"}></DetailContainer>
             </div>
         );
     }

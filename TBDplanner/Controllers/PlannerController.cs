@@ -22,6 +22,11 @@ namespace TBDplanner.Controllers
             _plannerRepository = plannerRepository;
         }
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("Dashboard", "Home");
+        }
+
         public ActionResult Detail(int id)
         {
             return View();

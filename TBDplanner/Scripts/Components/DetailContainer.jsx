@@ -2,7 +2,7 @@
     constructor(props) {
         super(props);
 
-        this.state = { name : '', loading: false };
+        this.state = { name : this.props.plannerName, loading: false };
     }
 
    
@@ -11,6 +11,7 @@
         return (
             <div className="application">
                 <div className="container-fluid">
+                    <h1>Test</h1> 
                 </div>
             </div>
         );
