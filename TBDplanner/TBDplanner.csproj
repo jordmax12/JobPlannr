@@ -428,6 +428,7 @@
     <Content Include="Scripts\Components\PlannerForm.jsx" />
     <Content Include="Views\Planner\Detail.cshtml" />
     <Content Include="Scripts\Components\Detail.jsx" />
+    <Content Include="Scripts\Components\DetailContainer.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

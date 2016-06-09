@@ -3,7 +3,6 @@
         super(props);
 
         this.state = { name : '', loading: false };
-        this.auth();
     }
 
     auth() {
@@ -27,6 +26,7 @@
         return (
             <div>
                 <Navbar></Navbar>
+                <DetailContainer></DetailContainer>
             </div>
         );
     }
