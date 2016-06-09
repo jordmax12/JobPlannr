@@ -1,50 +1,34 @@
-﻿@model Common.Models.Planner
+﻿<html>
+<head>
+    <title>JobPlannr | Dashboard</title>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/creative.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Loading.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Dashboard.css" type="text/css" />
+</head>
+<body>
+    <div id="content"></div>
+    <div id="loading">
+        <img id="loading-image" src="~/Content/Images/loading.gif" alt="Loading..." />
+    </div>
+    <script type="text/javascript">
+        var userId = '@Session["UserId"]';
+        var redirectUrl = '@Url.Action("Detail", "Planner", new { id = "__id__" })';
+    </script>
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/Components/Navbar.jsx"></script>
+    <script src="~/Scripts/Components/Detail.jsx"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/home/jquery.easing.min.js"></script>
+    <script src="~/Scripts/home/jquery.fittext.js"></script>
+    <script src="~/Scripts/home/wow.min.js"></script>
+    <script src="~/Scripts/home/creative.js"></script>
+    <script src="~/Scripts/home/custom.js"></script>
 
-@{
-    ViewBag.Title = "Detail";
-}
 
-<h2>Detail</h2>
-
-<div>
-    <h4>Planner</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Modified)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Modified)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</body>
+</html>
