@@ -426,6 +426,7 @@
     <Content Include="Scripts\Components\Dashboard.jsx" />
     <Content Include="Scripts\Components\Tile.jsx" />
     <Content Include="Scripts\Components\PlannerForm.jsx" />
+    <Content Include="Views\Planner\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

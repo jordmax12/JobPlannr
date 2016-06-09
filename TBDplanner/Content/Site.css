@@ -19,6 +19,25 @@ textarea {
     max-width: 280px;
 }*/
 
+.inline {
+    display: inline-block;
+    float: left;
+}
+
+a > span.glyphicon-remove {
+    cursor: pointer;
+}
+
+.toggleDelete {
+    display: none;
+}
+
+.btn-xsm {
+    margin-top: -3px;
+    width: 50px;
+    padding: 3px 10px;
+}
+
 #pluswrap {
     position: fixed;
     width: 100%;

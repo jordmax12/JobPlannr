@@ -40,13 +40,54 @@
     }
 
     goToDetail(id) {
-        console.log(id);
+        window.location.href = redirectUrl.replace('__id__', id);
+    }
+
+    deletePlanner(id) {
+        var model = {
+            id: id
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Planner/Delete",
+            data: JSON.stringify(model),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data);
+                this.getPlanners();
+                this.toggleDelete();
+                
+            }.bind(this),
+            error: function (xhr, status, err) {
+                console.log(err);
+            }
+        });
+    }
+
+    toggleDelete() {
+        var display = $('.toggleDelete').css('display');
+
+        if (display == "none") {
+            $('.toggleDelete').show();
+            $('.toggleTileDelete').hide();
+
+            $('#editPlanner').hide();
+            $('#saveDeletePlanner').show();
+        } else {
+            $('.toggleDelete').hide();
+            $('.toggleTileDelete').show();
+
+            $('#editPlanner').show();
+            $('#saveDeletePlanner').hide();
+        }
+        
     }
 
     render() {
         const planners = this.state.planners.map((planner) => {
             return (
-                <Tile tileName={planner.Name} onDetailClick={() => this.goToDetail(planner.Id)}  key={planner.Id}></Tile>
+                <Tile tileName={planner.Name} onDetailClick={() => this.goToDetail(planner.Id)} onDeleteClick={() => this.deletePlanner(planner.Id)} key={planner.Id}  canDelete="true"></Tile>
             );
         });
         return (
@@ -60,7 +101,14 @@
                         </div>
                         <div className="chart-wrapper">
                           <div className="chart-title">
-                              Your Planners 
+                              Your Planners
+                              <div id="editPlanner" style={{"float":"right", "width": "50px"}}>
+                                  <button className="btn btn-primary btn-block btn-sm btn-xsm" onClick={() => this.toggleDelete() }>Edit</button>
+                              </div>
+
+                              <div id="saveDeletePlanner" style={{ "float": "right", "display": "none", "width": "60px", "marginRight": "5px" }}>
+                                  <button id="editPlanner" style={{ "width": "68px" }}className="btn btn-primary btn-block btn-sm btn-xsm " onClick={() => this.toggleDelete() }>Cancel</button>                              </div>
+                              
                           </div>
                           <div className="chart-stage">
                             <div id="grid-1-1">
@@ -82,7 +130,7 @@
                                         //        }
                                         //})()*/}
                                         {planners}
-                                        <Tile onDetailClick={() => this.addNewPlanner(null)} tileName="Add New +"></Tile>
+                                        <Tile onDetailClick={() => this.addNewPlanner(null)} tileName="Add New +" canDelete="false"></Tile>
                                         
                                     </div>
 

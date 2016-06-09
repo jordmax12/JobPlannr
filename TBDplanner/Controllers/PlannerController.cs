@@ -1,4 +1,5 @@
 ﻿using Business.Engine;
+using Business.Repositories;
 using Common.Models;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,20 @@ using System.Web.Mvc;
 
 namespace TBDplanner.Controllers
 {
-    [Authorize]
+    
     public class PlannerController : Controller
     {
         private readonly IPlannerEngine _plannerEngine;
-        public PlannerController(IPlannerEngine plannerEngine)
+        private readonly IPlannerRepository _plannerRepository;
+        public PlannerController(IPlannerEngine plannerEngine, IPlannerRepository plannerRepository)
         {
             _plannerEngine = plannerEngine;
+            _plannerRepository = plannerRepository;
+        }
+
+        public ActionResult Detail(int id)
+        {
+            return View();
         }
 
         [AllowAnonymous]
@@ -27,12 +35,16 @@ namespace TBDplanner.Controllers
             return Json(new { IsSuccess = false, Error = "testing", ReturnObject = "" });
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Delete()
+        public ActionResult Delete(Planner planner)
         {
-            return new JsonResult();
+            planner = _plannerEngine.Get(planner.Id);
+            _plannerEngine.Delete(planner);
+            return Json(new { IsSuccess = false, Error = "testing", ReturnObject = "" });
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Update()
         {

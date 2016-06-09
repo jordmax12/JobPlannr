@@ -66,6 +66,8 @@ namespace Business.Repositories
         public void Remove(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);
+            Context.Entry(entity).State = EntityState.Deleted;
+            Context.SaveChanges();
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
