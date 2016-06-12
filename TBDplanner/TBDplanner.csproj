@@ -325,7 +325,13 @@
     <Content Include="Content\Images\portfolio\4.jpg" />
     <Content Include="Content\Images\portfolio\5.jpg" />
     <Content Include="Content\Images\portfolio\6.jpg" />
+    <Content Include="Content\Images\Stack\asp.net.png" />
+    <Content Include="Content\Images\Stack\bootstrap.png" />
+    <Content Include="Content\Images\Stack\github.png" />
+    <Content Include="Content\Images\Stack\react.png" />
     <Content Include="Content\Loading.css" />
+    <Content Include="Content\Video\Landing.mp4" />
+    <Content Include="Content\Video\Landing2.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -381,6 +387,7 @@
     <Content Include="Scripts\home\custom.js" />
     <Content Include="Scripts\home\jquery.easing.min.js" />
     <Content Include="Scripts\home\jquery.fittext.js" />
+    <Content Include="Scripts\home\jquery.vide.min.js" />
     <Content Include="Scripts\home\wow.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

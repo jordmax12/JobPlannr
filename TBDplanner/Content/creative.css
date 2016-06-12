@@ -10,7 +10,9 @@ body {
     height: 100%;
 }
 
-
+body {
+    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+}
 
 .testR {
     width: 100%;
@@ -28,10 +30,6 @@ body {
     right: 0;
     text-align:center;
     padding-top:calc(50% - 30px);
-}
-
-body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
 hr {
@@ -142,13 +140,7 @@ aside {
 }
 
 @media(min-width:768px) {
-
-   .navbar-default {
-        border-color: rgba(255,255,255,.3);
-        background-color: #fff;
-        color: #f05f40 !important
-    }
-    .navbar-default:not(#mainNav) {
+    .navbar-default {
         border-color: rgba(255,255,255,.3);
         background-color: transparent;
     }
@@ -177,11 +169,6 @@ aside {
         background-color: #fff;
     }
 
-    .navbar-default.affix-static {
-        border-color: rgba(34,34,34,.05);
-        background-color: #fff;
-    }
-
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
         color: #f05f40;
@@ -201,16 +188,6 @@ aside {
     .navbar-default.affix .nav>li>a:focus:hover {
         color: #f05f40;
     }
-
-    #mainNav .navbar-brand, #mainNav .nav-inverse {
-        color: #f05f40 !important;
-    }
-
-    #mainNav .nav > li>a {
-        color: black;
-    }
-
-    /*color: #f05f40 !important;*/
 }
 
 header {
@@ -219,7 +196,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(Images/img1.jpg);
+    background-image: url(../img/img1.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -246,6 +223,7 @@ header .header-content .header-content-inner hr {
 }
 
 header .header-content .header-content-inner p {
+    display: inline-block;
     margin-bottom: 50px;
     font-size: 1.3em;
     font-weight: 400;
@@ -280,7 +258,7 @@ header .header-content .header-content-inner p {
     header .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
-        max-width: 80%;
+        max-width: 70%;
         font-size: 1.7em;
     }
 }
@@ -515,4 +493,8 @@ img::selection {
 img::-moz-selection {
     color: #fff;
     background: 0 0;
+}
+
+body {
+    webkit-tap-highlight-color: #222;
 }

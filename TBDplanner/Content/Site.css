@@ -19,6 +19,16 @@ textarea {
     max-width: 280px;
 }*/
 
+
+   
+
+.stackImages {
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    border: none !important;
+}
+
 .inline {
     display: inline-block;
     float: left;
@@ -74,5 +84,11 @@ a > span.glyphicon-remove {
     background: tomato;
     height: 50px;
     clear: both;
+}
+
+@media screen and (max-width: 670px) {
+    .header-content {
+        padding-right: 30px !important;
+    }
 }
 
