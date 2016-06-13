@@ -136,7 +136,7 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
+                            <input type="text" class="form-control input-lg" id="user_username" placeholder="Your Username">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control input-lg" id="user_password" placeholder="Password">
@@ -373,7 +373,7 @@
             inProcess = true;
             jobPlannr.toggleOverlay();
 
-            var email = $('#user_email').val() !== undefined ? $('#user_email').val() : null,
+            var email = $('#user_username').val() !== undefined ? $('#user_username').val() : null,
                 password = $('#user_password').val() !== undefined ? $('#user_password').val() : null;
 
             var data = {

@@ -5,7 +5,7 @@
 
     render() {
          return (
-                <nav id="mainNav" className="navbar navbar-default navbar-fixed-top">
+                <nav id="dashNav" className="navbar navbar-default navbar-fixed-top">
                 <div className="container-fluid">{/* Brand and toggle get grouped for better mobile display */}
                     <div className="navbar-header">
                     <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

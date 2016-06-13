@@ -2,7 +2,7 @@
     constructor(props) {
         super(props);
 
-        this.state = { name : '', loading: false };
+        this.state = { name: model.name, created: model.created, loading: false, model: model };
     }
 
     auth() {
@@ -26,7 +26,12 @@
         return (
             <div>
                 <Navbar></Navbar>
-                <DetailContainer plannerName={"Test"}></DetailContainer>
+                <div className="application">
+                    <div className="container-fluid">
+                        <h1>{this.state['name']}</h1>
+                        <h3>{this.state['created']}</h3>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -330,6 +330,7 @@
     <Content Include="Content\Images\Stack\github.png" />
     <Content Include="Content\Images\Stack\react.png" />
     <Content Include="Content\Loading.css" />
+    <Content Include="Content\Navbar.css" />
     <Content Include="Content\Video\Landing.mp4" />
     <Content Include="Content\Video\Landing2.mp4" />
     <Content Include="favicon.ico" />

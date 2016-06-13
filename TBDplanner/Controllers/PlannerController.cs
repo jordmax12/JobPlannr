@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
+
 namespace TBDplanner.Controllers
 {
     
@@ -29,7 +30,8 @@ namespace TBDplanner.Controllers
 
         public ActionResult Detail(int id)
         {
-            return View();
+            var plannr = _plannerEngine.Get(id);
+            return View(plannr);
         }
 
         [AllowAnonymous]
