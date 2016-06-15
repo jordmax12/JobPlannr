@@ -29,8 +29,22 @@
             userId: '@Model.UserId',
             name: '@Model.Name'
         };
+
+
+        setTimeout(function () {
+            $('.row').on('click', '.clickable-row', function (event) {
+                console.log("her")
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+
+            $('.row').on('click', function (event) {
+                console.log("her2")
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        }, 1000)
+
     </script>
-    
+    <script src="~/Scripts/Components/EntriesTable.jsx"></script>
     <script src="~/Scripts/Components/Navbar.jsx"></script>
     @*<script src="~/Scripts/Components/DetailContainer.jsx"></script>*@
     <script src="~/Scripts/Components/Detail.jsx"></script>

@@ -92,3 +92,91 @@ a > span.glyphicon-remove {
     }
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* TABLE CSS*/
+.table-wrapper {
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 800px;
+}
+.table {
+  margin: 0 0 20px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+/*.clickable-row:hover:not(.active) {
+    background-color: #e9e9e9 !important;
+}
+
+.active {
+    background-color: #b8d1f3 !important;
+}*/
+
+.row:not(.ignore) {
+  display: table-row;
+  background: #fff;
+}
+.row:nth-of-type(odd) {
+  background: #fff;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+
+.full-cell {
+
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
+
+.ignore {
+    background-color: transparent !important;
+}
+/* END TABLE CSS*/
+
+/* Glyph icons*/
+.glyphicon-remove {
+    color: red;
+}
+
+.glyphicon-edit {
+    color: green;
+}
+/* end glyph icons*/
