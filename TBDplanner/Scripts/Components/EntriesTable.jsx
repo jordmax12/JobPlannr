@@ -15,12 +15,6 @@
                       <div className="float-left">
                           {this.props.rowName}
                       </div>
-
-                      <div className="float-right">
-                                              <button type="button" className="btn btn-default btn-sm">
-                        <span className="glyphicon glyphicon-plus" aria-hidden="true" /> Add
-                                              </button>
-                      </div>
                       
                   </div>
                   <div className="cell">

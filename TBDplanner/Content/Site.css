@@ -100,10 +100,20 @@ a > span.glyphicon-remove {
     float: right;
 }
 
+.add-new {
+    float: right;
+    margin-right: 15px;
+}
+
+.btn-override {
+    border-radius: 0 !important;
+}
+
 /* TABLE CSS*/
 .table-wrapper {
   margin: 0 auto;
   padding: 15px;
+  padding-bottom: 0;
   max-width: 800px;
 }
 .table {

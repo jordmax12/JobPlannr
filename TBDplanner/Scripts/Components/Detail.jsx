@@ -33,6 +33,9 @@
                             <div className="row ignore">
                                 <div className="col-sm-7">
                                     <EntriesTable rowClass="row header" rowName="Current Entries"></EntriesTable>
+                                    <div className="add-new">
+                                        <button className="btn btn-success btn-override">Add New</button>
+                                    </div>
                                 </div>
                                 <div className="col-sm-5">
                                     <EntriesTable rowClass="row header green" rowName="Contributors"></EntriesTable>
