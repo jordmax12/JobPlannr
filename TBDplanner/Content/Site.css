@@ -136,13 +136,13 @@ a > span.glyphicon-remove {
     background-color: #b8d1f3 !important;
 }*/
 
-.row:not(.ignore) {
+/*.row:not(.ignore) {
   display: table-row;
   background: #fff;
-}
-.row:nth-of-type(odd) {
+}*/
+/*.row:nth-of-type(odd) {
   background: #fff;
-}
+}*/
 .row.header {
   font-weight: 900;
   color: #ffffff;

@@ -190,15 +190,15 @@
     <Compile Include="Dto\ServiceResult.cs" />
     <Compile Include="Dto\SubscriptionDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
-    <Compile Include="Engine\ContributorEngine.cs" />
     <Compile Include="Engine\EntryEngine.cs" />
+    <Compile Include="Engine\HelperEngine.cs" />
     <Compile Include="Engine\PlannerEngine.cs" />
     <Compile Include="Engine\SubscriptionEngine.cs" />
     <Compile Include="Engine\UserEngine.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ContributorRepository.cs" />
     <Compile Include="Repositories\EntryRepository.cs" />
+    <Compile Include="Repositories\HelperRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PlannerRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />

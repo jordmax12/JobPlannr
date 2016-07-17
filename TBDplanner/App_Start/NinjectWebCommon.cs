@@ -69,6 +69,8 @@ namespace TBDplanner.App_Start
             kernel.Bind<ISubscriptionEngine>().To<SubscriptionEngine>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IPlannerRepository>().To<PlannerRepository>();
+            //kernel.Bind<IContributorEngine>().To<ContributorEngine>();
+            //kernel.Bind<IContributorRepository>().To<ContributorRepository>();
             kernel.Bind<BusinessContext>().To<BusinessContext>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }

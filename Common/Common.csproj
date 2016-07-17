@@ -185,7 +185,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Contributor.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\EmailSubscription.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Planner.cs" />

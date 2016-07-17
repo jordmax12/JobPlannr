@@ -37,7 +37,6 @@ namespace Business.Engine
         public void Add(Planner planner)
         {
             _plannerRepository.Add(planner);
-            Console.WriteLine("test");
         }
 
         public Planner Get(int id)

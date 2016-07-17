@@ -30,7 +30,7 @@ namespace Common.Models
 
         public DateTime? Modified { get; set; }
 
-        public virtual List<Contributor> Contributors { get; set; }
+        public virtual List<Helper> Contributors { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }

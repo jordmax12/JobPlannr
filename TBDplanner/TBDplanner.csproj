@@ -291,6 +291,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContributorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlannerController.cs" />
@@ -299,6 +300,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -437,10 +439,14 @@
     <Content Include="Views\Planner\Detail.cshtml" />
     <Content Include="Scripts\Components\Detail.jsx" />
     <Content Include="Scripts\Components\DetailContainer.jsx" />
+    <Content Include="Scripts\Components\DashHelper.jsx" />
+    <Content Include="Scripts\Components\SearchBar.jsx" />
+    <Content Include="Scripts\Components\ContributorSearch.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\home\" />
+    <Folder Include="Views\Contributor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

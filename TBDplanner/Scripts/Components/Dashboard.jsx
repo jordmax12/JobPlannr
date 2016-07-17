@@ -93,6 +93,7 @@
         return (
             <div className="application">
                 <PlannerForm getPlanners={() => this.getPlanners()}></PlannerForm>
+                <ContributorSearch></ContributorSearch>
                 <div className="container-fluid">
                     <div className="row">
                       <div className="col-sm-8">
@@ -145,13 +146,14 @@
                       <div className="col-sm-4">
                         <div className="chart-wrapper">
                           <div className="chart-title">
-                              Cell Title
+                              Contributors
                           </div>
                           <div className="chart-stage">
-                            <img data-src="holder.js/100%x240/white" />
+                            <SearchBar></SearchBar>
+                              <Contributor></Contributor>
                           </div>
                           <div className="chart-notes">
-                              Notes about this chart
+                              
                           </div>
                         </div>
                       </div>

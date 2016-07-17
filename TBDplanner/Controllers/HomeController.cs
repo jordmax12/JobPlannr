@@ -10,9 +10,17 @@ namespace TBDplanner.Controllers
 {
     public class HomeController : Controller
     {
+        //private IContributorEngine _contributorEngine;
+        public List<Helper> Contributors;
         // GET: Home
+
+        public HomeController()
+        {
+            //_contributorEngine = contributorEngine;
+        }
         public ActionResult Index()
         {
+
             //UserEngine userEngine = new UserEngine();
             //UserAccounts user = new UserAccounts();
             //user.Username = "nancyRaegan";
@@ -31,11 +39,21 @@ namespace TBDplanner.Controllers
             var token = Session["UserId"];
             var user = Session["UserName"];
 
+
+
             if (token != null)
-                return View();
+            {
+                TBDplanner.Models.Dashboard Dashboard = new Dashboard();
+                //Dashboard.Contributors = _contributorEngine.GetAll(Convert.ToInt32(token));
+
+                //Dashboard:36 Uncaught SyntaxError: Unterminated template literal (cant do it this way) 
+                //Uncaught ReferenceError: userId is not defined
+                return View(Dashboard);
+            }
+
             else
                 return RedirectToAction("Index", "Home");
-            
+
         }
 
         public JsonResult GetAuth()

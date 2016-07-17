@@ -1,5 +1,4 @@
-﻿
-<html>
+﻿@model TBDplanner.Models.Dashboard
 <head>
     <title>JobPlannr | Dashboard</title>
     <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" />
@@ -18,6 +17,8 @@
     <script type="text/javascript">
         var userId = '@Session["UserId"]';
         var redirectUrl = '@Url.Action("Detail", "Planner", new { id = "__id__" })';
+        //var contributors = @*@Model.Contributors;*@
+        //console.log(contributors);
     </script>
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
@@ -26,6 +27,9 @@
     <script src="~/Scripts/Components/Tile.jsx"></script>
     <script src="~/Scripts/Components/Navbar.jsx"></script>
     <script src="~/Scripts/Components/Dashboard.jsx"></script>
+    <script src="~/Scripts/Components/SearchBar.jsx"></script>
+    <script src="~/Scripts/Components/DashHelper.jsx"></script>
+    <script src="~/Scripts/Components/ContributorSearch.jsx"></script>
     <script src="~/Scripts/Home.jsx"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/home/jquery.easing.min.js"></script>
