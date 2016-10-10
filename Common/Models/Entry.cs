@@ -13,29 +13,26 @@ namespace Common.Models
     {
         public int Id { get; set; }
 
-        [MaxLength(100)]
-        public string CompanyName { get; set; }
-
         public string Description { get; set; }
 
         [MaxLength(100)]
-        public string Source { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(100)]
         public string Status { get; set; }
-
-        public int Rank { get; set; }
 
         public DateTime? Created { get; set; }
 
         public DateTime? Modified { get; set; }
 
-        public virtual List<Helper> Contributors { get; set; }
+        public virtual List<Helper> Helpers { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }
 
         public virtual User User { get; set; }
+
+        public List<Task> Tasks { get; set; }
 
     }
 }

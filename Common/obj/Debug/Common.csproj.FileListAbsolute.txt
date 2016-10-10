@@ -102,3 +102,4 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\System.Web.WebPages.Deplo
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\bin\System.Web.WebPages.Razor.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

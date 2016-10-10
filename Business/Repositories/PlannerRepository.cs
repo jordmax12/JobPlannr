@@ -16,11 +16,6 @@ namespace Business.Repositories
 
         }
 
-        public Planner Update(Planner planner)
-        {
-            throw new NotImplementedException();
-        }
-
         public BusinessContext BusinessContext
         {
             get { return Context as BusinessContext; }
@@ -34,7 +29,6 @@ namespace Business.Repositories
 
     public interface IPlannerRepository : IRepository<Planner>
     {
-        Planner Update(Planner planner);
         List<Planner> GetAll(int id);
     }
 

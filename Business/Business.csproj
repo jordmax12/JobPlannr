@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -187,13 +191,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BusinessContext.cs" />
+    <Compile Include="Dto\HelperDto.cs" />
+    <Compile Include="Dto\PlannerDto.cs" />
     <Compile Include="Dto\ServiceResult.cs" />
     <Compile Include="Dto\SubscriptionDto.cs" />
+    <Compile Include="Dto\SubTaskDto.cs" />
+    <Compile Include="Dto\TaskDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Engine\EntryEngine.cs" />
     <Compile Include="Engine\HelperEngine.cs" />
     <Compile Include="Engine\PlannerEngine.cs" />
     <Compile Include="Engine\SubscriptionEngine.cs" />
+    <Compile Include="Engine\SubTaskEngine.cs" />
+    <Compile Include="Engine\TaskEngine.cs" />
     <Compile Include="Engine\UserEngine.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,6 +212,8 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PlannerRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\SubTaskRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>

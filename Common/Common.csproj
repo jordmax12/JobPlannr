@@ -189,6 +189,8 @@
     <Compile Include="Models\EmailSubscription.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Planner.cs" />
+    <Compile Include="Models\SubTask.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\UserAccounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

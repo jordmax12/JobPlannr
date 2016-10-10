@@ -112,6 +112,7 @@ C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Common.dll
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Business.pdb
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\TBDplanner\bin\Common.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\ApplicationInsights.config
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\roslyn\csc.exe
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -240,6 +241,7 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\Microsoft.Owin.Securi
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\ru-ru\JavaScriptEngineSwitcher.V8.resources.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\ru-ru\MsieJavaScriptEngine.resources.dll
-C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\obj\Debug\TBDplanner.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\AutoMapper.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\TBDplanner\bin\AutoMapper.xml

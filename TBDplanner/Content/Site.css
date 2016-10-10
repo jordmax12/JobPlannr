@@ -154,6 +154,10 @@ a > span.glyphicon-remove {
 .row.blue {
   background: #2980b9;
 }
+
+.table-borderless {
+    border: none;
+}
 @media screen and (max-width: 580px) {
   .row {
     padding: 8px 0;
@@ -162,7 +166,6 @@ a > span.glyphicon-remove {
 }
 
 .cell {
-  padding: 6px 12px;
   display: table-cell;
 }
 
@@ -171,7 +174,6 @@ a > span.glyphicon-remove {
 }
 @media screen and (max-width: 580px) {
   .cell {
-    padding: 2px 12px;
     display: block;
   }
 }

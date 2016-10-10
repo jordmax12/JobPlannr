@@ -24,9 +24,9 @@ namespace Business.Engine
             _plannerRepository = plannerRepository;
         }
 
-        public Planner Update(Planner planner)
+        public void Update(Planner planner)
         {
-            return _plannerRepository.Update(planner);
+            _plannerRepository.Update(planner);
         }
 
         public void Delete(Planner planner)
@@ -54,7 +54,7 @@ namespace Business.Engine
     {
         Planner Get(int id);
         List<Planner> GetAll(int id);
-        Planner Update(Planner planner);
+        void Update(Planner planner);
         void Add(Planner planner);
         void Delete(Planner planner);
     }

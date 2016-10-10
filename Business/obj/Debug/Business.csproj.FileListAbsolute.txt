@@ -37,6 +37,7 @@ C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Business\bin\Mi
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Business\obj\Debug\Business.dll
 C:\Users\Jordan\documents\visual studio 2015\Projects\TBDplanner\Business\obj\Debug\Business.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\ApplicationInsights.config
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\roslyn\csc.exe
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -104,6 +105,7 @@ C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\System.Web.Razor.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\System.Web.WebPages.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\System.Web.WebPages.Razor.xml
-C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\obj\Debug\Business.dll
 C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\obj\Debug\Business.pdb
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\AutoMapper.dll
+C:\Users\Jordan\Documents\GitHub\TBDplanner\Business\bin\AutoMapper.xml

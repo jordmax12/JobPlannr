@@ -58,6 +58,14 @@ namespace Business.Repositories
                 Context.SaveChanges();
         }
 
+        public TEntity AddWithReturn(TEntity entity)
+        {
+            Context.Set<TEntity>().Add(entity);
+            Context.Entry(entity).State = EntityState.Added;
+            Context.SaveChanges();
+            return entity;
+        }
+
         public void AddRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().AddRange(entities);
@@ -67,6 +75,16 @@ namespace Business.Repositories
         {
             Context.Set<TEntity>().Remove(entity);
             Context.Entry(entity).State = EntityState.Deleted;
+            Context.SaveChanges();
+        }
+
+        public void Update(TEntity entity)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Save()
+        {
             Context.SaveChanges();
         }
 

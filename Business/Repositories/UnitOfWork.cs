@@ -16,8 +16,14 @@ namespace Business
         {
             _context = context;
             Users = new UserRepository(_context);
+            Tasks = new TaskRepository(_context, this);
+            SubTasks = new SubTaskRepository(_context, this);
         }
         public IUserRepository Users { get; private set; }
+
+        public ITaskRepository Tasks { get; private set; }
+
+        public ISubTaskRepository SubTasks { get; private set; }
 
         public int Complete()
         {
@@ -33,6 +39,8 @@ namespace Business
     public interface IUnitOfWork : IDisposable
     {
         IUserRepository Users { get; }
+        ITaskRepository Tasks { get; }
+        ISubTaskRepository SubTasks { get; }
         int Complete();
     }
 }

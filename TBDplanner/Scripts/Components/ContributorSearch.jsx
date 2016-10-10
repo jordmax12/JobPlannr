@@ -9,7 +9,7 @@
 
     render() {
         return (
-            <div className="modal fade" id="myModal"> 
+            <div className="modal fade" id="contributorSearch"> 
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">

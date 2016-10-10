@@ -17,11 +17,6 @@ namespace Business.Repositories
 
         }
 
-        public Entry Update(Entry entry)
-        {
-            throw new NotImplementedException();
-        }
-
         public BusinessContext BusinessContext
         {
             get { return Context as BusinessContext; }
@@ -35,7 +30,6 @@ namespace Business.Repositories
 
     public interface IEntryRepository
     {
-        Entry Update(Entry entry);
         List<Entry> GetAll(int id);
     }
 }

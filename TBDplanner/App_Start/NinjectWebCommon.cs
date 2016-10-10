@@ -66,9 +66,13 @@ namespace TBDplanner.App_Start
         {
             kernel.Bind<IUserEngine>().To<UserEngine>();
             kernel.Bind<IPlannerEngine>().To<PlannerEngine>();
+            kernel.Bind<ITaskEngine>().To<TaskEngine>();
+            kernel.Bind<ISubTaskEngine>().To<SubTaskEngine>();
             kernel.Bind<ISubscriptionEngine>().To<SubscriptionEngine>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IPlannerRepository>().To<PlannerRepository>();
+            kernel.Bind<ITaskRepository>().To<TaskRepository>();
+            kernel.Bind<ISubTaskRepository>().To<SubTaskRepository>();
             //kernel.Bind<IContributorEngine>().To<ContributorEngine>();
             //kernel.Bind<IContributorRepository>().To<ContributorRepository>();
             kernel.Bind<BusinessContext>().To<BusinessContext>();

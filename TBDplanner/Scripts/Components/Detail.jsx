@@ -1,8 +1,7 @@
 ﻿class Detail extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = { name: model.name, created: model.created, loading: false, model: model };
+        this.state = { name: model.name, created: model.created, plannerid: model.plannerId, loading: false, model: model };
     }
 
     auth() {
@@ -18,6 +17,7 @@
         //});
     }
 
+
     componentDidMount() {
         $('#loading').hide();
     }
@@ -32,13 +32,9 @@
                         <h3>{this.state['created']}</h3>
                             <div className="row ignore">
                                 <div className="col-sm-7">
-                                    <EntriesTable rowClass="row header" rowName="Current Entries"></EntriesTable>
-                                    <div className="add-new">
-                                        <button className="btn btn-success btn-override">Add New</button>
-                                    </div>
+                                    <Tasks plannerId={this.state.plannerid} rowClass="row header" rowName="Current Tasks"></Tasks>
                                 </div>
                                 <div className="col-sm-5">
-                                    <EntriesTable rowClass="row header green" rowName="Contributors"></EntriesTable>
 
                                 </div>
                             </div>
