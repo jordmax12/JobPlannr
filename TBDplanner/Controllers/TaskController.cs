@@ -56,6 +56,14 @@ namespace TBDplanner.Controllers
             return Json(new { IsSuccess = false, Error = "testing", ReturnObject = "" });
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult AddWithReturn(Common.Models.Task task)
+        {
+            var _task = _taskEngine.AddWithReturn(task);
+            return Json(new { IsSuccess = false, Error = "testing", ReturnObject = task });
+        }
+
         public Common.Models.Task GetById(int id)
         {
             return _taskEngine.Get(id);

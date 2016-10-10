@@ -52,6 +52,11 @@ namespace Business.Engine
             _taskRepository.Add(task);
         }
 
+        public Common.Models.Task AddWithReturn(Common.Models.Task task)
+        {
+            return _taskRepository.AddWithReturn(task);
+        }
+
         public Common.Models.Task Get(int id)
         {
             return _taskRepository.Get(id);
@@ -74,6 +79,7 @@ namespace Business.Engine
         List<Common.Models.Task> GetAll(int id);
         ServiceResult Update(Common.Models.Task task);
         void Add(Common.Models.Task task);
+        Common.Models.Task AddWithReturn(Common.Models.Task task);
         void Delete(Common.Models.Task task);
     }
 }

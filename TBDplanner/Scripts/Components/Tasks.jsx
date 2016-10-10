@@ -31,34 +31,42 @@
     }
 
     AddSubTaskObject(taskId, newSubTaskId) {
-        var data = this.state.tasks[taskId];
-        //create new object
-        var subTaskObject = {
-            Id : newSubTaskId,
-            Name :"Inject Me",
-            Status : "",
-            Level : 1,
-            Subtasks : [],
-            Created: '',
-            Modified : '',
-            TaskId : taskId
-        };
-        //grab the task object
-        var taskObjectKey = this.state.tasks[taskId - 1];
+        var _task = this.state.tasks.filter((_, i) => this.state.tasks[i].Id == taskId)[0];
+        if(typeof _task !== 'undefined') {
+            //create new object
+            var subTaskObject = {
+                Id : newSubTaskId,
+                Name :"New SubTask",
+                Status : "",
+                Level : 1,
+                Subtasks : [],
+                Created: '',
+                Modified : '',
+                TaskId : taskId
+            };
 
-        //add new object to task object
-        taskObjectKey.SubTasks.push(subTaskObject);
+            var index = this.getIndex(_task, this.state.tasks);
+
+            if(index != -1) {
+                //grab the task object
+                var taskObjectKey = this.state.tasks[index];  
+
+                //add new object to task object
+                taskObjectKey.SubTasks.push(subTaskObject);
         
-        //update tasks
-        this.state.tasks[taskId - 1] = taskObjectKey;
-        this.forceUpdate();
-
+                //update tasks
+                this.state.tasks[taskId - 1] = taskObjectKey;
+                this.forceUpdate();
+            } else {
+                //error
+            }
+        }
     }
 
     AddSubTask(taskId) {
         //create subtask object
         var subTaskObject = {
-            Name: 'Inject Name',
+            Name: 'New Subtask',
             Status: '',
             Level: 1,
             Subtasks: [],
@@ -72,10 +80,8 @@
             data: JSON.stringify(subTaskObject),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data);
                 //return the new subtask id back here
                 this.AddSubTaskObject(taskId, data.ReturnObject.Id);
-                //this.setState({ tasks: data.ReturnObject, loading: false });
             }.bind(this),
             error: function (xhr, status, err) {
                 console.log(err);
@@ -124,11 +130,11 @@
         });
     }
 
-    createTask(name) {
+    createTask() {
         //make api call to create planner here.
 
         var data = {
-            Name: name,
+            Name: "New Task",
             PlannerId: model.plannerId,
             Status: "Not Complete",
             Description: "",
@@ -136,16 +142,21 @@
             Footprint: "",
             Created: new Date(),
             Modified: null,
+            SubTasks: []
         };
 
         $.ajax({
             type: "POST",
-            url: "/Task/Add",
+            url: "/Task/AddWithReturn",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 console.log(data);
-                this.getTasks(model.plannerId);
+                //not working correctly yet?
+                //adding a subtask for a new task we create here
+                //issue with subtasks
+                this.state.tasks.push(data.ReturnObject);
+                this.forceUpdate();
             }.bind(this),
             error: function (xhr, status, err) {
                 console.log(err);
@@ -173,7 +184,19 @@
     render() {
         const tasks = this.state.tasks.map((task) => {
             var editable = this.state.editableTasks.filter(id => id === task.Id).length > 0;
-            const subTaskComponents = task.SubTasks.map(subTask => <li key={subTask.Id} className="list-group-item" style={{border: 0, backgroundColor: 'rgba(127,191,63,.42)'}}>{subTask.Name}</li>);
+            const subTaskComponents = task.SubTasks.map(subTask => 
+                <li key={subTask.Id} className="list-group-item" style={{minHeight: '50px', border: 0, backgroundColor: 'rgba(127,191,63,.42)'}}>
+                        <div className="pull-left" style={{width: '50%'}}>
+                            {subTask.Name}
+                        </div>
+                       <div className="pull-right" style={{marginTop: '-5px', width: '50%'}}>
+                           <div className="pull-right">
+                                <button className="btn btn-default" onClick={() => {this.AddSubTask(task.Id)}}>+</button>
+                                <button className="btn btn-default" onClick={() => { this.EditTask(task.Id)}}>{editable ? <i className="fa fa-check"></i> : <i className="fa fa-pencil-square-o"></i>}</button>
+                           </div>
+                     </div>
+                </li>
+            );
             
 
 
