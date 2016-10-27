@@ -33,12 +33,10 @@
 
         setTimeout(function () {
             $('.row').on('click', '.clickable-row', function (event) {
-                console.log("her")
                 $(this).addClass('active').siblings().removeClass('active');
             });
 
             $('.row').on('click', function (event) {
-                console.log("her2")
                 $(this).addClass('active').siblings().removeClass('active');
             });
         }, 1000)

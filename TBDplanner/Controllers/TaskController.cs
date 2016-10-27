@@ -35,6 +35,7 @@ namespace TBDplanner.Controllers
         public ActionResult Update(int id, string name)
         {
             var task = GetById(id);
+            task.Name = name;
 
             if(task != null)
             {

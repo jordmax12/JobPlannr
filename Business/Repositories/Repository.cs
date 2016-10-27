@@ -81,6 +81,7 @@ namespace Business.Repositories
         public void Update(TEntity entity)
         {
             Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
         }
 
         public void Save()
