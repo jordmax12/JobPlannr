@@ -19,6 +19,7 @@
 
 
     componentDidMount() {
+        console.log('here')
         $('#loading').hide();
     }
 

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace Business.Repositories
 {
@@ -53,9 +55,27 @@ namespace Business.Repositories
 
         public void Add(TEntity entity)
         {
-                Context.Set<TEntity>().Add(entity);
-                Context.Entry(entity).State = EntityState.Added;
+            Context.Set<TEntity>().Add(entity);
+            Context.Entry(entity).State = EntityState.Added;
+            try
+            {
                 Context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var j = ex;
+            }
+                
         }
 
         public TEntity AddWithReturn(TEntity entity)

@@ -387,6 +387,7 @@
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
+                    console.log(data);
                     if (data.IsSuccess) {
                         //swal("", "Logged in", "success");
                         $('#user_email').val('');

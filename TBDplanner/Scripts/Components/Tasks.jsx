@@ -1,16 +1,18 @@
-﻿class Tasks extends React.Component {
-    
+﻿
+class Tasks extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
             editableTasks: [],
-            tasks: [],
-            subTasks: [],
             editableSubTasks: [], 
+            tasks: [],
+            subTasks: [],            
             plannerId: this.props.plannerId,
         };
-
+        this.focusTasks = [];
+        this.focusSubTasks = [];
         var state = this.state;
 
         
@@ -30,9 +32,20 @@
         this.EditTask = this.EditTask.bind(this);
     }
 
-    handleTaskChange(index, event) {
-        var tasks = this.state.tasks.slice(); // Make a copy of the emails first.
-        tasks[index].Name = event.target.value; // Update it with the modified email.
+    handleTaskChange(event, index) {
+            var tasks = this.state.tasks.slice(); // Make a copy of the tasks first.
+            tasks[index].Name = event.target.value; // Update it with the modified task.
+            this.setState({tasks: tasks}); // Update the state.
+    }
+
+    handleSubTaskChange(event, index, parentIndex) {       
+        //react is stupid and doesn't configure the params very well.
+        //definitely a hack but...
+        var _index = event;
+        var _parentIndex = index;
+        var _event = parentIndex;
+
+        this.state.tasks[_parentIndex].SubTasks[index].Name = _event.target.value; // Update it with the modified subtask.
         this.setState({tasks: tasks}); // Update the state.
     }
 
@@ -61,7 +74,7 @@
                 taskObject.SubTasks.push(subTaskObject);
         
                 //update tasks
-                this.state.tasks[taskId - 1] = taskObjectKey;
+                this.state.tasks[index] = taskObject;
                 this.forceUpdate();
             } else {
                 //error
@@ -102,15 +115,23 @@
         //check whether or not the task already exists
         var alreadyExists = indexedTask.length > 0;
         if(!alreadyExists) {
+
             //add to array
             nextState.editableTasks.push(Id);
             this.setState(nextState);
+
+            var taskRef = 'task' + Id;
+            setTimeout(function() {
+                var el = $('input[id="' + taskRef +'"]');
+                console.log(el);
+                el.focus();
+                el.selectionStart = el.selectionEnd = 0;
+            }, 1);
         } else {
             var index = this.getKey(indexedTask[0], this.state.editableTasks);
             //index should never be -1, but just in case..
             if(index != -1) {
                 var task = this.state.tasks.filter((_, i) => this.state.tasks[i].Id == Id)[0];
-                console.log(task);
                 //call subtask controller to add
                 $.ajax({
                     type: "POST",
@@ -129,7 +150,7 @@
                 this.setState({
                     editableTasks: this.state.editableTasks.filter((_, i) => i !== index)
                 });
-                
+               
             }
         }
     }
@@ -151,9 +172,16 @@
             var indexedSubTask = this.state.editableSubTasks.filter(id => id === subTaskId);
             //check whether or not the task already exists
             var alreadyExists = indexedSubTask.length > 0;
+            var subTaskRef = 'subTask' + subTaskId;
+            setTimeout(function() {
+                var el = $('input[id="' + subTaskRef +'"]')
+                el.focus();
+                el.selectionStart = el.selectionEnd = 0;
+            }, 1);
             if(!alreadyExists) {
                 //add to array
                 nextState.editableSubTasks.push(subTaskId);
+                $('#' + subTaskRef).focus();
                 this.setState(nextState);
             } else {
                 //get the editableSubTask key
@@ -162,6 +190,9 @@
                 this.setState({
                     editableSubTasks: this.state.editableSubTasks.filter((_, i) => i !== subTaskIndexFromEditable )
                 });
+
+                
+                
             }
         }
     }
@@ -237,11 +268,10 @@
         const tasks = this.state.tasks.map((task, idx) => {
             var editable = this.state.editableTasks.filter(id => id === task.Id).length > 0;
             var editableSubTasks = this.state.editableSubTasks;
-            const subTaskComponents = task.SubTasks.map(subTask => 
-                //var subEditable = this.state.editableSubTasks.filter(id => id === subTask.Id).length > 0;
+            const subTaskComponents = task.SubTasks.map((subTask, indx) => 
                 <li key={subTask.Id} className="list-group-item" style={{minHeight: '50px', border: 0, backgroundColor: 'rgba(127,191,63,.42)'}}>
                         <div className="pull-left" style={{width: '50%'}}>
-                            {editableSubTasks.filter(id => id === subTask.Id).length > 0 ? <input type="text" /> : <span>{subTask.Name}</span>}
+                            {editableSubTasks.filter(id => id === subTask.Id).length > 0 ? <input className="ui-input-text" type="text" ref={ (ref) => this.focusSubTasks[subTask.Id] = ref }  onChange={this.handleSubTaskChange.bind(this, indx, idx)} value={subTask.Name} id={ `subTask${subTask.Id}` } /> : <span>{subTask.Name}</span>}
                         </div>
                         <div className="pull-right" style={{marginTop: '-5px', width: '50%'}}>
                             <div className="pull-right">
@@ -249,16 +279,11 @@
                             </div>
                         </div>
                 </li>
-            
-
             );
-            
-
-
             return (
                <li className="list-group-item"  key={task.Id} style={{minHeight: '50px'}}>
                    <div className="pull-left" style={{width: '50%'}}>
-                       {editable ? <input type="text" onChange={this.handleTaskChange.bind(this, idx)} value={task.Name} /> : <span>{task.Name}</span>}
+                       {editable ? <input className="ui-input-text" type="text" onChange={this.handleTaskChange.bind(this, idx)} value={task.Name} id={ `task${task.Id}` }/> : <span>{task.Name}</span>}
                    </div>
                    <div className="pull-right" style={{marginTop: '-5px', width: '50%'}}>
                        <div className="pull-right">

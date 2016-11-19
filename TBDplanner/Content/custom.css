@@ -2,6 +2,11 @@
     color: #eb3812 !important;
 }
 
+.ui-input-text {
+    border: none !important;
+    border-color: transparent !important;
+}
+
 @media(min-width:768px) {
     .affix .nav-inverse {
         color: #eb3812 !important;
