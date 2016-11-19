@@ -7,6 +7,10 @@
     border-color: transparent !important;
 }
 
+.btn-default:not(:last-child) {
+    margin-right: 4px;
+}
+
 @media(min-width:768px) {
     .affix .nav-inverse {
         color: #eb3812 !important;

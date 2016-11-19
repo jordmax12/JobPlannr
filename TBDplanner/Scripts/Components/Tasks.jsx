@@ -7,6 +7,8 @@ class Tasks extends React.Component {
         this.state = {
             editableTasks: [],
             editableSubTasks: [], 
+            completedTasks: [],
+            completedSubTasks: [],
             tasks: [],
             subTasks: [],            
             plannerId: this.props.plannerId,
@@ -47,6 +49,37 @@ class Tasks extends React.Component {
 
         this.state.tasks[_parentIndex].SubTasks[index].Name = _event.target.value; // Update it with the modified subtask.
         this.setState({tasks: tasks}); // Update the state.
+    }
+
+    completeTask(taskId, taskIndex) {
+        //grab the task object
+        var taskObject = this.state.tasks[taskIndex];  
+
+        //add new object to task object
+        taskObject.Status = "Complete";
+
+        //update tasks
+        this.state.tasks[taskIndex] = taskObject;
+        this.state.completedTasks.push(taskId);
+        console.log(this.state.completedTasks);
+        this.forceUpdate();
+    }
+
+    completeSubTask(subTaskId, taskId, subTaskIndex, taskIndex) {
+        //grab the task object
+        var taskObject = this.state.tasks[taskIndex];  
+
+        //grab the subTask object
+        var subTaskObject = taskObject.SubTasks[subTaskIndex];
+
+        //add new object to task object
+        subTaskObject.Status = "Complete";
+
+        //update tasks
+        this.state.tasks[taskIndex].SubTasks[subTaskIndex] = subTaskObject;
+        this.state.tasks[taskIndex] = taskObject;
+        this.state.completedSubTasks.push(subTaskId);
+        this.forceUpdate();
     }
 
     AddSubTaskObject(taskId, newSubTaskId) {
@@ -268,27 +301,31 @@ class Tasks extends React.Component {
         const tasks = this.state.tasks.map((task, idx) => {
             var editable = this.state.editableTasks.filter(id => id === task.Id).length > 0;
             var editableSubTasks = this.state.editableSubTasks;
+            var completedTasks = this.state.completedTasks;
+            var completedSubTasks = this.state.completedSubTasks;
             const subTaskComponents = task.SubTasks.map((subTask, indx) => 
-                <li key={subTask.Id} className="list-group-item" style={{minHeight: '50px', border: 0, backgroundColor: 'rgba(127,191,63,.42)'}}>
+                <li key={subTask.Id} className="list-group-item }" style={{minHeight: '50px', border: 0, backgroundColor: (completedTasks.filter(id => id === task.Id).length > 0 || completedSubTasks.filter(id => id === subTask.Id).length > 0 ? 'rgba(204, 255, 204,.42)' : 'rgba(242, 242, 242,.42)')}}>
                         <div className="pull-left" style={{width: '50%'}}>
                             {editableSubTasks.filter(id => id === subTask.Id).length > 0 ? <input className="ui-input-text" type="text" ref={ (ref) => this.focusSubTasks[subTask.Id] = ref }  onChange={this.handleSubTaskChange.bind(this, indx, idx)} value={subTask.Name} id={ `subTask${subTask.Id}` } /> : <span>{subTask.Name}</span>}
                         </div>
                         <div className="pull-right" style={{marginTop: '-5px', width: '50%'}}>
                             <div className="pull-right">
-                                 <button className="btn btn-default" onClick={() => { this.EditSubTask(task.Id, subTask.Id)}}>{editableSubTasks.filter(id => id === subTask.Id).length > 0  ? <i className="fa fa-check"></i> : <i className="fa fa-pencil-square-o"></i>}</button>
+                                <button className="btn btn-default ignore" onClick={() => { this.EditSubTask(task.Id, subTask.Id)}}>{editableSubTasks.filter(id => id === subTask.Id).length > 0  ? <i className="fa fa-floppy-o"></i> : <i className="fa fa-pencil-square-o"></i>}</button>
+                                {editableSubTasks.filter(id => id === subTask.Id).length > 0  ?  <div style={{display: 'none' }}></div> : (completedTasks.filter(id => id === task.Id).length > 0 || completedSubTasks.filter(id => id === subTask.Id).length > 0 ? <div style={{display: 'none' }}></div> : <button className="btn btn-default ignore" onClick={() => {this.completeSubTask(subTask.Id, task.Id, indx, idx)}}><i className="fa fa-check"></i></button>)}
                             </div>
                         </div>
                 </li>
             );
             return (
-               <li className="list-group-item"  key={task.Id} style={{minHeight: '50px'}}>
+               <li className="list-group-item"  key={task.Id} style={{minHeight: '50px', backgroundColor: (completedTasks.filter(id => id === task.Id).length > 0 ? 'rgba(204, 255, 204,.42)' : 'rgba(255, 255, 255,.42)')}}>
                    <div className="pull-left" style={{width: '50%'}}>
                        {editable ? <input className="ui-input-text" type="text" onChange={this.handleTaskChange.bind(this, idx)} value={task.Name} id={ `task${task.Id}` }/> : <span>{task.Name}</span>}
                    </div>
                    <div className="pull-right" style={{marginTop: '-5px', width: '50%'}}>
                        <div className="pull-right">
-                            <button className="btn btn-default" onClick={() => {this.AddSubTask(task.Id)}}>+</button>
-                            <button className="btn btn-default" onClick={() => { this.EditTask(task.Id)}}>{editable ? <i className="fa fa-check"></i> : <i className="fa fa-pencil-square-o"></i>}</button>
+                            <button className="btn btn-default ignore" onClick={() => {this.AddSubTask(task.Id)}}>+</button>
+                            <button className="btn btn-default ignore" onClick={() => { this.EditTask(task.Id)}}>{editable ? <i className="fa fa-floppy-o "></i> : <i className="fa fa-pencil-square-o"></i>}</button>
+                            {editable ? <div style={{display: 'none'}}></div> : (completedTasks.filter(id => id === task.Id).length > 0 ? <div style={{display: 'none' }}></div> : <button className="btn btn-default ignore" onClick={() => {this.completeTask(task.Id, idx)}}><i className="fa fa-check"></i></button>)}
                         </div>
                    </div>
                    <br />
