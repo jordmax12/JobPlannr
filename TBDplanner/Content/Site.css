@@ -1,24 +1,194 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+
+   
+
+.stackImages {
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    border: none !important;
 }
+
+.inline {
+    display: inline-block;
+    float: left;
+}
+
+a > span.glyphicon-remove {
+    cursor: pointer;
+}
+
+.toggleDelete {
+    display: none;
+}
+
+.btn-xsm {
+    margin-top: -3px;
+    width: 50px;
+    padding: 3px 10px;
+}
+
+#pluswrap {
+    position: fixed;
+    width: 100%;
+    height:100%;
+    display: none;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.91);
+    top: 0;
+    z-index:2000;
+}
+
+.site-footer {
+  height: 50px; 
+}
+
+.plus {
+    display: flex;
+    margin: 0 auto;
+}
+
+#content {
+    min-height:100%;
+    height: 100%; 
+    margin: 0 auto -50px;
+    background: snow;
+}
+
+.push {
+    height: 50px;
+    clear: both;
+}
+
+.site-footer {
+    background: tomato;
+    height: 50px;
+    clear: both;
+}
+
+@media screen and (max-width: 670px) {
+    .header-content {
+        padding-right: 30px !important;
+    }
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.add-new {
+    float: right;
+    margin-right: 15px;
+}
+
+.btn-override {
+    border-radius: 0 !important;
+}
+
+/* TABLE CSS*/
+.table-wrapper {
+  margin: 0 auto;
+  padding: 15px;
+  padding-bottom: 0;
+  max-width: 800px;
+}
+.table {
+  margin: 0 0 20px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+/*.clickable-row:hover:not(.active) {
+    background-color: #e9e9e9 !important;
+}
+
+.active {
+    background-color: #b8d1f3 !important;
+}*/
+
+/*.row:not(.ignore) {
+  display: table-row;
+  background: #fff;
+}*/
+/*.row:nth-of-type(odd) {
+  background: #fff;
+}*/
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+
+.table-borderless {
+    border: none;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  display: table-cell;
+}
+
+.full-cell {
+
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    display: block;
+  }
+}
+
+.ignore {
+    background-color: transparent !important;
+}
+/* END TABLE CSS*/
+
+/* Glyph icons*/
+.glyphicon-remove {
+    color: red;
+}
+
+.glyphicon-edit {
+    color: green;
+}
+/* end glyph icons*/

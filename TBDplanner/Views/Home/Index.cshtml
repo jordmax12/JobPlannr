@@ -1,11 +1,450 @@
 ﻿<html>
 <head>
-    <title>Hello React</title>
+    <meta charset="utf-8">
+    <meta name="description" content="App that helps people in the job hunt process.">
+    <meta name="author" content="JobPlannr">
+
+    <title>JobPlannr</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/creative.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
 </head>
-<body>
-    <div id="content"></div>
-    <script src="https://fb.me/react-15.0.1.js"></script>
-    <script src="https://fb.me/react-dom-15.0.1.js"></script>
-    <script src="~/Scripts/Home.jsx"></script>
+<body id="page-top">
+    @*<div id="content"></div>*@
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">JobPlannr</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about" class="page-scroll">About</a>
+                    </li>
+                    <li>
+                        <a href="#services" class="page-scroll">Services</a>
+                    </li>
+                    <li>
+                        <a href="#team" class="page-scroll">Team Members</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="page-scroll">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-scroll nav-inverse" data-toggle="modal" data-target="#signin">Login</a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-scroll nav-inverse" data-toggle="modal" data-target="#signup">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <!--
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        <h1>JobPlannr</h1>
+                        <hr>
+                        <p>Time To Land You a Job</p>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Join us! / Sign UP now!</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        -->
+        <div style="width: 100vw; height: 100vh; z-index:999" data-vide-bg="../Content/Video/Landing3.mp4" data-vide-options="loop: true, muted: false, position: 0% 0%">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>JobPlannr</h1>
+                    <hr>
+                    <p>We make the job searching process as easy as going to the beach.</p>
+
+                    <div class="row header-row-fix">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control input-lg" id="user_email" placeholder="Your Email">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Join us! / Sign UP now!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sign Up Modal -->
+    <div id="signup" tabindex="-1" role="dialog" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sign Up!</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control input-lg" id="new_user_email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" id="new_user_username" placeholder="Your Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="new_user_password" placeholder="Password">
+                        </div>
+                        <button type="submit" id="signUpSubmit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="signin" tabindex="-1" role="dialog" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Sign In!</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" id="user_username" placeholder="Your Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="user_password" placeholder="Password">
+                        </div>
+                        <button type="submit" id="signInSubmit" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Optimize the way you look for a job.</h2>
+                    <hr class="light">
+                    <p class="text-faded">Looking for a job can be hard enough, and keeping track of it all makes it that much more difficult. Let JobPlannr streamline the way you look for a job so you can focus on the important things.</p>
+                    <a href="#" class="btn btn-default btn-xl" data-toggle="modal" data-target="#signup">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">How will you benefit with JobPlannr?</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Premium</h3>
+                        <p class="text-muted">Users can choose a free or paid option depending on what they need for their job search.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>White Label</h3>
+                        <p class="text-muted">API's available to create a custom application for your needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Collaboration</h3>
+                        <p class="text-muted">Allow other contributors to assist you with your Plannr.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Organization</h3>
+                        <p class="text-muted">JobPlannr takes away the burden of the organizational aspect of the job search.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="team">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Jordan David
+                                </div>
+                                <div class="project-name">
+                                    Awesome guy with awesome ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Ethan Arrowood
+                                </div>
+                                <div class="project-name">
+                                    Awesome guy with other awesome ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Another person
+                                </div>
+                                <div class="project-name">
+                                    Cool ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="~/Content/Images/portfolio/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Another person
+                                </div>
+                                <div class="project-name">
+                                    With other cool ideas
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>What our stack is built on:</h2>
+                <img src="../../Content/Images/Stack/asp.net.png" class="stackImages" />
+                <img src="../../Content/Images/Stack/react.png" class="stackImages"/>
+                <img src="../../Content/Images/Stack/bootstrap.png" class="stackImages" />
+                <img src="../../Content/Images/Stack/azure.png" class="stackImages" />
+                <img src="../../Content/Images/Stack/vs.png" class="stackImages" />
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Suggestions</h2>
+                    <hr class="primary">
+                    <p>Let us know how we can improve the job search process.</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:jordmax12@gmail.com">suggestions@jobplannr.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="loading" style="display: none;">
+        <img id="loading-image" src="~/Content/Images/loading.gif" alt="Loading..." />
+    </div>
+
+
+    @*<script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>*@
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/home/jquery.easing.min.js"></script>
+    <script src="~/Scripts/home/jquery.fittext.js"></script>
+    <script src="~/Scripts/home/wow.min.js"></script>
+    <script src="~/Scripts/home/creative.js"></script>
+    <script src="~/Scripts/home/custom.js"></script>
+    <script src="~/Scripts/home/jquery.vide.min.js"></script>
+    @*<script src="~/Scripts/Home.jsx"></script>*@
+    <script type="text/javascript">
+        var inProcess = false;
+        var userIP = '@TempData["userIP"]';
+        var jobPlannr = {};
+
+        jobPlannr.toggleOverlay = function () {
+            var display = $('#loading').css('display');
+
+            if (display != 'none')
+                $('#loading').hide();
+            else
+                $('#loading').show();
+        }
+
+        $('#subscribeSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var ip = userIP;
+            var email = $('#subscribeEmail').val() !== undefined ? $('#subscribeEmail').val() : null;
+
+            if(email == null)
+            {
+                alert("Email is not valid or empty, please enter a valid one.");
+                return;
+            }
+
+            var data = {
+                IP: ip,
+                Email: email
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/AddEmailSubscription",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    swal("You're on our radar, chief!", "Stay tuned for some really sweet emails coming your way! (We promise not too much)", "success");
+                    $('#subscribeEmail').val('');
+                    inProcess = false;
+                    jobPlannr.toggleOverlay();
+                }
+            });
+        });
+
+        $('#signInSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var email = $('#user_username').val() !== undefined ? $('#user_username').val() : null,
+                password = $('#user_password').val() !== undefined ? $('#user_password').val() : null;
+
+            var data = {
+                Username: email,
+                Password: password
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/Login",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    if (data.IsSuccess) {
+                        //swal("", "Logged in", "success");
+                        $('#user_email').val('');
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                        window.location.href = '/Home/Dashboard';
+                    } else {
+                        swal("", data.Error, "error");
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                    }
+
+                }
+            });
+        });
+
+        $('#signUpSubmit').click(function (event) {
+            event.preventDefault();
+
+            if (inProcess) return;
+            inProcess = true;
+            jobPlannr.toggleOverlay();
+
+            var email = $('#new_user_email').val() !== undefined ? $('#new_user_email').val() : null,
+                password = $('#new_user_password').val() !== undefined ? $('#new_user_password').val() : null,
+                username = $('#new_user_username').val() !== undefined ? $('#new_user_username').val() : null;
+
+            var data = {
+                Email: email,
+                Password: password,
+                Username: username
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/Register",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    //swal("", "Registered", "success");
+                    console.log(data);
+                    if (data.IsSuccess) {
+                        swal("", "Registered!", "success");
+                        $('#new_user_email').val('');
+                        inProcess = false;
+                        jobPlannr.toggleOverlay();
+                    } else {
+                        inProcess = false;
+                        console.log(data);
+                        jobPlannr.toggleOverlay();
+                    }
+
+                }
+            });
+        });
+
+
+    </script>
 </body>
 </html>

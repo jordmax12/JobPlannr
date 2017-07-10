@@ -1,0 +1,44 @@
+﻿@model TBDplanner.Models.Dashboard
+<head>
+    <title>JobPlannr | Dashboard</title>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/creative.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Loading.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Dashboard.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Navbar.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
+</head>
+<body>
+    <div id="content"></div>
+    <div id="loading">
+        <img id="loading-image" src="~/Content/Images/loading.gif" alt="Loading..." />
+    </div>
+    <script type="text/javascript">
+        var userId = '@Session["UserId"]';
+        var redirectUrl = '@Url.Action("Detail", "Planner", new { id = "__id__" })';
+        //var contributors = @*@Model.Contributors;*@
+        //console.log(contributors);
+    </script>
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/Components/PlannerForm.jsx"></script>
+    <script src="~/Scripts/Components/Tile.jsx"></script>
+    <script src="~/Scripts/Components/Navbar.jsx"></script>
+    <script src="~/Scripts/Components/Dashboard.jsx"></script>
+    <script src="~/Scripts/Components/SearchBar.jsx"></script>
+    <script src="~/Scripts/Components/DashHelper.jsx"></script>
+    <script src="~/Scripts/Components/ContributorSearch.jsx"></script>
+    <script src="~/Scripts/Home.jsx"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/home/jquery.easing.min.js"></script>
+    <script src="~/Scripts/home/jquery.fittext.js"></script>
+    <script src="~/Scripts/home/wow.min.js"></script>
+    <script src="~/Scripts/home/creative.js"></script>
+    <script src="~/Scripts/home/custom.js"></script>
+
+    
+</body>
+</html>

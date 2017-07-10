@@ -1,0 +1,13 @@
+﻿.navbar-default {
+    border-color: rgba(255,255,255,.3);
+    background-color: #fff;
+}
+
+.navbar-default > .navbar-default {
+    border-color: rgba(255,255,255,.3);
+    color: #f05f40;
+}
+
+.navbar-default .navbar-brand {
+    color: #f05f40 !important;
+}

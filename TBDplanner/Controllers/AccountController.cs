@@ -9,6 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TBDplanner.Models;
+using Business.Context;
+using Common.Models;
+using Business.Engine;
+using System.Threading;
 
 namespace TBDplanner.Controllers
 {
@@ -17,9 +21,17 @@ namespace TBDplanner.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly BusinessContext _businessContext;
+        private readonly IUserEngine _userEngine;
+        private readonly ISubscriptionEngine _subscriptionEngine;
 
-        public AccountController()
+        public AccountController(BusinessContext businessContext, IUserEngine userEngine, ISubscriptionEngine subscriptionEngine)
         {
+            //UserContext userContext = new UserContext();
+            //UserEngine userEngine = new UserEngine();
+            _userEngine = userEngine;
+            _businessContext = businessContext;
+            _subscriptionEngine = subscriptionEngine;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -36,7 +48,7 @@ namespace TBDplanner.Controllers
             }
             private set 
             { 
-                _signInManager = value; 
+                _signInManager = value;  
             }
         }
 
@@ -52,6 +64,56 @@ namespace TBDplanner.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult AddEmailSubscription()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult AddEmailSubscription(EmailSubscription user)
+        {
+            try
+            {
+                using (_businessContext)
+                {
+                    _subscriptionEngine.Add(user);
+                    _businessContext.SaveChanges();
+                }
+
+                return Json(new { IsSuccess = true, Error = "", ReturnObject = user });
+            } catch(Exception ex)
+            {
+                return Json(new { IsSuccess = false, Error = ex.Message, ReturnObject = "" });
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            using (_businessContext)
+            {
+                try
+                {
+                    var result = _userEngine.Add(user);
+                    _businessContext.SaveChanges();
+                    return Json(new { IsSuccess = result.IsSuccess, Error = result.Error, ReturnObject = result.ReturnObject });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { IsSuccess = false, Error = ex.Message, ReturnObject = "" });
+                }
+            }
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -61,35 +123,57 @@ namespace TBDplanner.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
-        [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        [HttpPost]
+        public ActionResult Login(User user)
         {
-            if (!ModelState.IsValid)
+            using (_businessContext)
             {
-                return View(model);
-            }
+                var usr = _businessContext.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+                if(usr != null)
+                {
+                    Session["UserId"] = usr.Id.ToString();
+                    Session["Username"] = usr.Username.ToString();
+                    //return RedirectToAction("Index", "Home");
+                    return Json(new { IsSuccess = true, Error = "", ReturnObject = usr });
+                }
+                else
+                {
+                    return Json(new { IsSuccess = false, Error = "Invalid username or password.", ReturnObject = "" });
+                }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
             }
         }
+
+        //
+        // POST: /Account/Login
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+
+        //    // This doesn't count login failures towards account lockout
+        //    // To enable password failures to trigger account lockout, change to shouldLockout: true
+            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+        //    switch (result)
+        //    {
+        //        case SignInStatus.Success:
+        //            return RedirectToLocal(returnUrl);
+        //        case SignInStatus.LockedOut:
+        //            return View("Lockout");
+        //        case SignInStatus.RequiresVerification:
+        //            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+        //        case SignInStatus.Failure:
+        //        default:
+        //            ModelState.AddModelError("", "Invalid login attempt.");
+        //            return View(model);
+        //    }
+        //}
 
         //
         // GET: /Account/VerifyCode
@@ -135,42 +219,34 @@ namespace TBDplanner.Controllers
         }
 
         //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+        //            // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+        //            // Send an email with this link
+        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        AddErrors(result);
+        //    }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
 
         //
         // GET: /Account/ConfirmEmail
